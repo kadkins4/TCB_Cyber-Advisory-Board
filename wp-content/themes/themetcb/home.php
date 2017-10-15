@@ -139,7 +139,7 @@
       <?php while ( $wpb_all_query->have_posts() ) : $wpb_all_query->the_post(); ?>
         <div id="ciphertake-entry">
           <h3><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
-          <p><?php echo wp_trim_words( get_the_content(), 40, '...' );?> </p>
+          <p><?php echo wp_trim_words( get_the_content(), 85, '...' );?> </p>
         </div>
       <?php endwhile; ?>
       <!-- end of the loop -->
@@ -147,7 +147,7 @@
       <?php wp_reset_postdata(); ?>
 
   <?php else : ?>
-      <p><?php _e( 'Sorry, no posts matched your criteria.' ); ?></p>
+      <p><?php _e( 'Sorry, no articles have been posted yet.' ); ?></p>
   <?php endif; ?>
     </div>
   </div>
@@ -174,7 +174,7 @@
               <!-- the loop -->
               <?php while ( $wpb_all_query->have_posts() ) : $wpb_all_query->the_post(); ?>
                 <div class="whitepaper-entry">
-                  <h3 style="text-transform: capitalize;"><a href="<?php the_permalink(); ?>"><?php echo wp_trim_words(get_the_title(), 5, '...'); ?></a></h3>
+                  <h3 style="text-transform: capitalize;"><a href="<?php the_permalink(); ?>"><?php echo wp_trim_words(get_the_title(), 4, '...'); ?></a></h3>
                   <h5>By The Cipher Brief Staff</h5>
                 </div>
               <?php endwhile; ?>
@@ -226,8 +226,6 @@
 
   </div>
 
-  </div>
-
   <!-- extraneous blocks -->
   <div class="holder-container">
     <div class="">
@@ -235,7 +233,7 @@
       <p>to subscribe click here <a href="https://www.thecipherbrief.com/subscribe">HERE</a></p>
     </div>
   </div>
-
+</div>
 </div>
 
     <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
