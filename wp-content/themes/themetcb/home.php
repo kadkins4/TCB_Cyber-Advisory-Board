@@ -221,7 +221,6 @@
 
       </div>
       <div class="holder-container">
-        <p>other sections go here</p>
       </div>
     </div>
 
