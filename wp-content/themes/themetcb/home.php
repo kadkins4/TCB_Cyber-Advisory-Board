@@ -65,15 +65,11 @@
             <!-- apply custom image size made in functions.php setup -->
             <a style="border: 2px solid black;" href="<?php the_permalink(); ?>"> <?php the_post_thumbnail( 'thecipherbrief-thumbnail-cab' ); ?> </a>
           </div>
+          <?php $postID = get_the_ID() ?>
           <h3 style="text-transform: capitalize; line-height: 1.2;"><a href="<?php the_permalink(); ?>"> <?php the_title(); ?> </a> </h3>
+          <?php $author = wp_get_post_terms($post->ID, 'authors'); ?>
           <h5 class="author_name">
-            <?php
-              $str = get_the_content();
-              $split = explode(" ", $str);
-              echo $split[count($split)-2];
-              echo ' ';
-              echo $split[count($split)-1];
-            ?>
+            <?=$author[0]->name?>
           </h5>
         </div>
       <?php endwhile; ?>
@@ -110,13 +106,7 @@
         <div class="threat-report-entry">
           <h3><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
           <h5><a class="author_name" href="<?php the_permalink(); ?>">
-            <?php
-              $str = get_the_content();
-              $split = explode(" ", $str);
-              echo $split[count($split)-2];
-              echo ' ';
-              echo $split[count($split)-1];
-            ?>
+              <?=$author[0]->name?>
           </a></h5>
         </div>
       <?php endwhile; ?>
@@ -162,7 +152,7 @@
       <?php wp_reset_postdata(); ?>
 
   <?php else : ?>
-      <p><?php _e( 'Sorry, no articles have been posted yet.' ); ?></p>
+      <p><?php _e( 'Cipher Take posts coming soon!' ); ?></p>
   <?php endif; ?>
     </div>
   </div>

@@ -1570,22 +1570,89 @@ function is_url_exist($url){
 //     return str_replace('%region%', $taxonomy_slug, $permalink);
 // }
 
-function people_init() {
-	// create a new taxonomy
-	register_taxonomy(
-		'authors',
-		'post',
-		array(
-			'label' => __( 'Authors' ),
-			'rewrite' => array( 'slug' => 'author' ),
-			'capabilities' => array(
-				'assign_terms' => 'edit_guides',
-				'edit_terms' => 'publish_guides'
-			)
-		)
-	);
+// function authors_init() {
+// 	// create a new taxonomy
+// 	register_taxonomy(
+// 		'authors',
+// 		'post',
+// 		array(
+// 			'label' => __( 'Authors' ),
+// 			'rewrite' => array( 'slug' => 'author' ),
+// 			'capabilities' => array(
+// 				'assign_terms' => 'edit_guides',
+// 				'edit_terms' => 'publish_guides'
+// 			)
+// 		)
+// 	);
+// }
+// add_action( 'init', 'authors_init' );
+class Test_Terms {
+
+    function __construct() {
+        register_activation_hook( __FILE__,array( $this,'activate' ) );
+        add_action( 'init', array( $this, 'create_cpts_and_taxonomies' ) );
+    }
+
+    function activate() {
+        $this->create_cpts_and_taxonomies();
+        $this->register_new_terms();
+    }
+
+    function create_cpts_and_taxonomies() {
+
+        $args = array(
+            'hierarchical'                      => true,
+            'labels' => array(
+                'name'                          => _x('Authors', 'taxonomy general name' ),
+                'singular_name'                 => _x('Author', 'taxonomy singular name'),
+                'search_items'                  => __('Search Authors'),
+                'popular_items'                 => __('Popular Authors'),
+                'all_items'                     => __('All Authors'),
+                'edit_item'                     => __('Edit Authors'),
+                'edit_item'                     => __('Edit Author'),
+                'update_item'                   => __('Update Author'),
+                'add_new_item'                  => __('Add New Author'),
+                'new_item_name'                 => __('New Author Name'),
+                'separate_items_with_commas'    => __('Seperate Author with Commas'),
+                'add_or_remove_items'           => __('Add or Remove Author'),
+                'choose_from_most_used'         => __('Choose from Most Used Author')
+            ),
+            'query_var'                         => true,
+            'rewrite'                           => array('slug' =>'author')
+        );
+        register_taxonomy( 'authors', array( 'post', 'whitepapers', 'cyberadvisorcolumn' ), $args );
+    }
+
+    function register_new_terms() {
+        $this->taxonomy = 'authors';
+        $this->terms = array (
+            '0' => array (
+                'name'          => 'Matt Filbert',
+                'slug'          => 'matt-filbert',
+                'description'   => 'This is a test term one',
+            ),
+            '1' => array (
+                'name'          => 'Kendall Adkins',
+                'slug'          => 'kendall-adkins',
+                'description'   => 'This is a test term two',
+            ),
+        );
+
+        foreach ( $this->terms as $term_key=>$term) {
+                wp_insert_term(
+                    $term['name'],
+                    $this->taxonomy,
+                    array(
+                        'description'   => $term['description'],
+                        'slug'          => $term['slug'],
+                    )
+                );
+            unset( $term );
+        }
+
+    }
 }
-add_action( 'init', 'people_init' );
+$Test_Terms = new Test_Terms();
 
 function getEvent(){
 	$time = time();
