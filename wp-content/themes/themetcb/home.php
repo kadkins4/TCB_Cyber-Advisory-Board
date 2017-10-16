@@ -50,7 +50,7 @@
       <?php $wpb_all_query = new WP_Query(array(
         'post_type' =>'cyberadvisorcolumn',
         'post_status' =>'publish',
-        'posts_per_page' => 4,
+        'posts_per_page' => 5,
         'orderby' => 'date',
         'order' => 'DESC'
       ));
@@ -63,7 +63,7 @@
         <div id="cyber-advisor-column-entry">
           <div class="cyber-img">
             <!-- apply custom image size made in functions.php setup -->
-            <a style="border: 2px solid black;" href="<?php the_permalink(); ?>"> <?php the_post_thumbnail( 'thecipherbrief-thumbnail-avatar' ); ?> </a>
+            <a style="border: 2px solid black;" href="<?php the_permalink(); ?>"> <?php the_post_thumbnail( 'thecipherbrief-thumbnail-cab' ); ?> </a>
           </div>
           <h3 style="text-transform: capitalize; line-height: 1.2;"><a href="<?php the_permalink(); ?>"> <?php the_title(); ?> </a> </h3>
           <h5 class="author_name">
@@ -97,7 +97,7 @@
     'post_type'=>'post',
     'category_name' => 'threat report',
     'post_status'=>'publish',
-    'posts_per_page'=> 8
+    'posts_per_page'=> 10
   ));
     ?>
 
@@ -109,7 +109,15 @@
       <?php while ( $wpb_all_query->have_posts() ) : $wpb_all_query->the_post(); ?>
         <div class="threat-report-entry">
           <h3><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
-          <h5><a class="author_name" href="<?php the_permalink(); ?>"> Wesley Morgan </a></h5>
+          <h5><a class="author_name" href="<?php the_permalink(); ?>">
+            <?php
+              $str = get_the_content();
+              $split = explode(" ", $str);
+              echo $split[count($split)-2];
+              echo ' ';
+              echo $split[count($split)-1];
+            ?>
+          </a></h5>
         </div>
       <?php endwhile; ?>
       <!-- end of the loop -->
@@ -144,9 +152,9 @@
 
       <!-- the loop -->
       <?php while ( $wpb_all_query->have_posts() ) : $wpb_all_query->the_post(); ?>
-        <div id="ciphertake-entry">
+        <div class="ciphertake-entry">
           <h3><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
-          <p><?php echo wp_trim_words( get_the_content(), 85, '...' );?> </p>
+          <p class="cab-hide"><?php echo wp_trim_words( get_the_content(), 85, '...' );?> </p>
         </div>
       <?php endwhile; ?>
       <!-- end of the loop -->
@@ -195,7 +203,7 @@
         </div>
 
         <div class="meet_board">
-          <h3 style="font-weight: bold; text-align: center; line-height: 1.2;">Meet Our Board</h3>
+          <h3 style="font-weight: bold; text-align: center; line-height: 1.2; font-family: 'replica-pro';"><a href="https://www.thecipherbrief.com/cyber-advisory-board">Meet Our Board</a></h3>
           <div class="meet_content" style='padding: 4px 4px 0 4px;'>
             <img class="board_img" src="https://thecipherbriefcyber.com/wp-content/uploads/2017/10/Robert-Work-bw.jpg" alt="Robert Work">
             <p class="board_text">Mr. Robert Work was the 31st Deputy Secretary of Defense, serving under three different Secretaries across two administrations. Previously, he served as chief executive officer of the Center for a New American Security. From 2009 to 2013, he served as the Under Secretary of the Navy. Mr. Work served on active duty in the U.S. Marine Corps for 27 years, retiring as a Colonel in 2001. He joined the Center for Strategic and Budgetary Assessments in 2002, where he wrote and spoke extensively on defense strategy and programs, revolutions in war, Department of Defense transformation, and maritime affairs. He also was an adjunct professor at The George Washington University.</p>
@@ -213,9 +221,17 @@
 
   <!-- extraneous blocks -->
   <div class="holder-container">
-    <div class="">
+    <div class="promo_blocks">
       <h3>How to Subscribe</h3>
-      <p>to subscribe click here <a href="https://www.thecipherbrief.com/subscribe">HERE</a></p>
+      <p>The Cipher Brief adds a layer of analysis to our reporting by identifying areas of agreement and disagreement by Cyber Advisory Board members and producing a White Paper that is available to subscribers. For more information about a Cyber Advisory Board subscription, click <a href="https://www.thecipherbrief.com/subscribe">here.</a></p>
+    </div>
+    <div class="promo_blocks">
+      <h3>Annual Corporate Sponsorship</h3>
+      <p>Companies with a dedicated commitment to thought leadership in the cyber realm are welcome to become Cyber Advisory Board sponsors. For more information on sponsorship, please contact <a href="https://www.thecipherbrief.com/subscribe">Brad Christian.</a></p>
+    </div>
+    <div class="promo_blocks">
+      <h3>Tell Us Your Thoughts</h3>
+      <p>Do you agree with the Board's findings? Disagree? Let us know your point of view and be a part of the conversation. We'll publish the most relevant subscriber contributions in the next issue. Subscribers can email us at <a href="mailto:cyberadvisoryboard@thecipherbrief.com">cyberadvisoryboard@thecipherbrief.com</a>.</p>
     </div>
   </div>
 </div>

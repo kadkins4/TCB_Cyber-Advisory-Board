@@ -87,7 +87,7 @@
 
                         // echo '<a href="www.google.com">';
 
-                        the_post_thumbnail( 'thumbnail' );
+                        the_post_thumbnail( 'thecipherbrief-thumbnail-cab' );
                             // echo '<img src="https://pbs.twimg.com/profile_images/822547732376207360/5g0FC8XX_400x400.jpg" width="220" height="220" alt="">';
                                 echo '<div class="expert-name" style="text-align: center;">';
                                     $str = get_the_content();
