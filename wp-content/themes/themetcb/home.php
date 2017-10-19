@@ -270,7 +270,7 @@
             <p class="board_text">Mr. Robert Work was the 31st Deputy Secretary of Defense, serving under three different Secretaries across two administrations. Previously, he served as chief executive officer of the Center for a New American Security. From 2009 to 2013, he served as the Under Secretary of the Navy. Mr. Work served on active duty in the U.S. Marine Corps for 27 years, retiring as a Colonel in 2001.</p>
           </div>
           <div class="board_link_holder">
-              <a class="board_link" href="https://www.thecipherbrief.com/cyber-advisory-board" style=" display: block; text-align: center; color: #d52340;">view the rest of the Cyber Advisory Board</a>
+              <a class="board_link" href="https://www.thecipherbrief.com/cyber-advisory-board" style=" display: block; text-align: center; color: #d52340;">View the rest of the Cyber Advisory Board</a>
           </div>
         </div>
 
