@@ -59,11 +59,11 @@ global $article_exerpt;
     <div class="block block-block newsletter-top-cta block-even clearfix">
         <div class="content clearfix">
             <div class="promo-left">
-                <h2>The Cyber Advisory Board Newsletter</h2>
-                <p>Get exclusive analysis delivered to your inbox weekly.</p>
+              <h2>Cyber Advisory Board Subscription</h2>
+              <p>Get exclusive analysis from the Cyber Advisory Board.</p>
             </div>
             <div class="promo-right">
-                <a class="light-blue-button" href="https://www.tcbconference.com/cyber-advisory-board">subscribe now</a>
+              <a class="light-blue-button" href="https://www.tcbconference.com/cyber-advisory-board">subscribe now</a>
             </div>
         </div>
     </div>
@@ -164,8 +164,7 @@ global $article_exerpt;
                 ?>
                 <div class="footerAuthor">
                     <div class="view-content">
-                        <h3>The Author is <a
-                                    href="/<?=$author[0]->taxonomy?>/<?=$author[0]->slug?>"><?=$author[0]->name?></a>
+                        <h3>The Author is <?=$author[0]->name?>
                         </h3>
                     </div>
                     <div class="views-field-description">
@@ -192,9 +191,7 @@ global $article_exerpt;
                         </div>
                     <?php }?>
                     <div class="views-field-nothing">
-                    <span class="field-content learn-more-about">
-                        <p>Learn more about The Cipher's Network <a href="/experts/" >here</a></p>
-                    </span>
+                    
                     </div>
                 </div>
                 <?php
@@ -207,6 +204,14 @@ global $article_exerpt;
         $tags_exist = wp_get_post_tags($post->ID);
     ?>
     <?php endif; ?>
+
+    <div style="width: 35vw; margin: 0 auto;">
+      <?php if( ! is_user_logged_in() ) : ?>
+        <?php echo do_shortcode("[login_form]"); ?>
+      <?php else : ?>
+        <div class="rcp_logged_in"><a href="<?php echo wp_logout_url( home_url() ); ?>"><?php _e( 'Log out', 'rcp' ); ?></a></div>
+      <?php endif; ?>
+    </div>
 
     <?php
     // @mpegi related articles

@@ -43,13 +43,13 @@ Text Domain: thecipherbrief
 --------------------------------------------------------------*/
 
 /*--------------------------------------------------------------
-0.0 CAB Microsite 
+0.0 CAB Microsite
 Styles for CAB site
 --------------------------------------------------------------*/
 h3 {
   font-family: 'replica-pro'!important;
   font-weight: 700;
-  font-size: 20px;
+  font-size: 18px!important;
 }
 
 .board_img {
@@ -59,7 +59,7 @@ h3 {
 }
 
 .board_text {
-  font-size: 10.5px;
+  font-size: 13px;
   margin: 0;
   font-family: 'replica-pro';
 
@@ -110,6 +110,8 @@ h3 {
 
 .third-section {
   width: 100%;
+  /*display: flex;
+  flex-direction: column;*/
 }
 
 .site-container {
@@ -128,7 +130,6 @@ h3 {
   width: 100%;
   margin: 10px 0 10px 0;
   height: auto;
-
 }
 
 .vert-container {
@@ -141,30 +142,78 @@ h3 {
   flex-direction: column;
   flex-wrap: wrap;
   justify-content: space-between;
-  padding: 0px 5px 0 10px;
-  height: 240px;
-  width: 60%;
+  padding: 10px 5px 15px 10px;
+  min-height: 240px;
+  width: 50vw;
+  height: auto;
   color: white;
   background-color: #000e31;
   overflow: hidden;
+}
+
+.inside-whitepaper {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: auto;
+}
+
+.explanation {
+  width: 35%;
+  margin: 10px 10px 0 2px;
+  border-right: 2px solid white;
+}
+
+.explanation h5 {
+  font-size: 15px;
+  font-family: 'replica-pro';
+  font-weight: 700;
+  text-decoration: underline;
+  text-align: left;
+}
+
+.explanation p {
+  padding: 10px 15px 0 10px;
+  font-size: 14px;
+  font-family: 'replica-pro';
+  line-height: 1.3;
+}
+
+.post-type-archive-whitepapers .rcp_logged_in {
+    display: none;
+}
+
+.post-type-archive-whitepapers .post_article p {
+    line-height: 1.5em;
+    display: none;
+}
+
+.post-type-archive-whitepapers .post_article .rcp_form p {
+    display: block;
+}
+
+.post-type-archive-whitepapers.logged-in p {
+    display: block;
 }
 
 .whitepaper-entry {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  height: 28%;
-  width: 47%;
+  height: auto;
+  width: 100%;
+  padding: 5px 5px 7px 2px;
   flex-wrap: wrap;
   overflow: hidden;
   color: white;
   text-overflow: ellipsis;
 }
 
-.whitepaper-entry a {
+.whitepaper-entry a, .whitepaper-entry h3 {
   color: white;
   font-weight: 700;
   font-size: 16px;
+  text-decoration: none;
 }
 
 .whitepaper-entry h5 {
@@ -174,13 +223,17 @@ h3 {
 
 .whitepaper-entry a:hover {
   color: white;
-  text-decoration: none;
+  text-decoration: underline;
+  /*box-shadow: -2px 0px 0px 0px #d52340;*/
 }
 
 .meet_board {
-  width: 25%;
-  height: 240px;
-  margin: 0 1%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  max-width: 27%;
+  height: auto;
+  margin: 0 0 0 1%;
   padding: 5px;
   overflow: scroll;
   text-overflow: ellipsis;
@@ -205,6 +258,7 @@ h3 {
 }
 
 #ciphertake {
+  margin: 0 0 8vh 0;
   width: 100%;
 }
 
@@ -228,7 +282,7 @@ h3 {
 
 #our_latest_news h3 a, #cyber-advisor-column-entry h3 a, .threat-report-entry h3 a {
   line-height: 1.2;
-  font-size: 16px;
+  font-size: 18px;
 }
 
 #our_latest_news h3, #our_latest_news .author_name {
@@ -271,9 +325,9 @@ h3 {
   display: flex;
   flex-direction: row;
   justify-content: center;
-  max-width: 100px;
+  max-width: 130px;
   height: auto;
-  max-height: 100px;
+  max-height: 130px;
   overflow: hidden;
   margin: 0 auto;
 }
@@ -324,12 +378,14 @@ div.search-block {
 }
 
 #threat-report {
-  max-height: 135vh;
+  min-height: 90vh;
+  height: fit-content;
   border-bottom: 1px #C8C8C8 solid;
+  padding-bottom: 1%;
 }
 
 .threat-report-entry {
-  margin: 5px 0 5px 0;
+  margin: 8% 0 0 0;
   display: flex;
   flex-direction: column;
   align-items: flex-start!important;
@@ -364,13 +420,15 @@ div.search-block {
 .ciphertake-entry h3 a {
   margin: 5px 0 15px 0;
   color: #077cc2;
+  font-size: 18px;
   font-weight: bold;
 }
 
 .ciphertake-entry p {
   margin: 10px 0 20px 0;
+  font-family: 'replica-pro';
   padding: 0 30px 0 0;
-  font-size: 12px;
+  font-size: 16px;
 }
 
 body.archive.post-type-archive .newsletter-top-cta {
@@ -397,11 +455,15 @@ box-sizing: border-box;
 
 .promo_blocks {
   background-color: #eee;
-  width: 24vw;
-  height: 23vh;
-  margin: auto 7px;
+  width: 23vw;
+  height: 175px;
+  margin: auto 10px auto 0;
   padding: 1.5% 1% 0 1%;
   overflow: scroll;
+}
+
+.promo_blocks:last-of-type {
+  margin: auto 0 auto 0;
 }
 
 .promo_blocks h3 {
@@ -413,13 +475,63 @@ box-sizing: border-box;
 
 .promo_blocks p {
   font-family: replica-pro;
-  font-size: 12px;
+  font-size: 13px;
 }
 
 .promo_blocks a {
   color: #d52340;
 }
 
+.col-ad {
+  overflow: visible;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.sidebar_ad {
+  /* dummy text */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: red;
+  font-size: 26px;
+  background-color: #eee;
+  border: 1px solid red;
+  /* end dummy text */
+  margin-top: 5vh;
+  height: 400px;
+  width: 250px;
+  overflow: visible;
+}
+
+.sidebar_ad2 {
+  /* dummy text */
+  border: 1px solid red;
+  align-items: center;
+  background-color: #eee;
+  color: red;
+  font-size: 26px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  /* end dummy text */
+  height: 450px;
+  width: 250px;
+  overflow: visible;
+  margin: 0 0 0 8%;
+}
+
+.third-section-container {
+  display: flex;
+  flex-direction: row;
+}
+
+.promo-holder {
+  width: fit-content;
+}
 /*--------------------------------------------------------------
 1.0 Normalize
 Styles based on Normalize v5.0.0 @link https://github.com/necolas/normalize.css
@@ -852,7 +964,7 @@ h3 {
     margin: 0 0 .5em 0;
     padding: .25em 0 0 0;
     color: #000f33;
-    font-size: 1.2em;
+    /*font-size: 1.2em;*/
     line-height: 1em;
     font-family: 'replica-pro', Arial, Helvetica, sans-serif;
     font-weight: 400;
@@ -2289,7 +2401,7 @@ li.menu-item a svg {
 }
 
 #block-menu-menu-social-media-menu ul li a {
-    color: #FFFFFF;
+    color: #23252d;
     font-size: 2.2em;
     -webkit-transition: color 100ms linear;
     -moz-transition: color 100ms linear;
@@ -2479,7 +2591,6 @@ body {
     font-family: 'replica-pro', Arial, Helvetica, sans-serif;
     font-weight: 400;
     color: #8c8f93;
-    padding-top: 5px;
 }
 
 .topNewsletter {
@@ -5033,11 +5144,11 @@ object {
     }
 }
 
-@media only screen and (max-width: 1277px) {
+/*@media only screen and (max-width: 1277px) {
     #block-menu-menu-social-media-menu {
       display: none;
     }
-}
+}*/
 
 @media only screen and (max-width: 1150px) {
     #top-menu>li.menu-item>a {
@@ -5110,7 +5221,7 @@ object {
     .menu-top-menu-container ul li a:hover .sub-menu {
         display: none;
     }
-    /*podmenu dobby tut display: none; => display: block;*/
+    /*podmenu dobby1 tut display: none; => display: block;*/
     #top-menu>li:hover>ul.sub-menu {
         display: none;
         position: absolute;
@@ -5137,12 +5248,12 @@ object {
     .header_baner_btn {
         margin-top: 20px;
     }
-    #top {
+    /*#top {
         width: 60%!important;
     }
     #block-views-advertisement_sidebar-block_1 {
         width: 60%!important;
-    }
+    }*/
     .col-mdws-1 {
         display: none;
         padding-right: 0px!important;
@@ -5454,7 +5565,7 @@ a.sumome-smartbar-link {
     #footer-menu {
         margin: 0 0 20px 0;
     }
-    #block-menu-menu-social-media-menu {
+    /*#block-menu-menu-social-media-menu {
         position: fixed;
         left: 0;
         bottom: 0;
@@ -5484,7 +5595,7 @@ a.sumome-smartbar-link {
     }
     #block-menu-menu-social-media-menu ul li:nth-child(4) {
         background-color: rgb(220, 78, 65);
-    }
+    }*/
 }
 
 @media screen and (max-width: 600px) {
@@ -6221,6 +6332,12 @@ input[type="search"] {
   }
   .holder-container h3, .holder-container .author_name {
     font-size: 90%!important;
+  }
+  .col-title a {
+    font-size: 70%;
+  }
+  #our_latest_news h3 a, #cyber-advisor-column-entry h3 a, .threat-report-entry h3 a {
+    font-size: 100%;
   }
 }
 
@@ -20126,4 +20243,50 @@ p.dec_cyber{
 
 .inherit-header {
   color: inherit;
+}
+
+/*Matt's additional CSS for CAB*/
+
+#block-menu-menu-social-media-menu ul {
+    margin: 0 0 0 0;
+    background: transparent;
+
+
+    padding: 1px 0 1px 0;
+    max-width: 400px;
+}
+
+#block-menu-menu-social-media-menu {
+    padding: 7px 0;
+    text-align: center;
+}
+#block-menu-menu-social-media-menu ul li {
+    margin: 0 7px 0 7px;
+    padding: 0;
+    display: inline-block;
+  }
+  #block-menu-menu-social-media-menu ul li a {
+    font-size: 2em;
+}
+.main-navigation {
+    float: none;
+}
+
+.navigation-top .wrap {
+    text-align: center;
+  }
+
+#top-menu>li.menu-item>a {
+  font-size: 1.6em;
+}
+
+.main-navigation li {
+    position: relative;
+    display: inline-block;
+    margin: 4px 0 0 0;
+    padding: 0 34px;
+}
+
+.whitepaper-entry h3 {
+    color: white;
 }

@@ -312,15 +312,14 @@ function rcp_register_form_stripe_checkout( $atts ) {
 	$data = wp_parse_args( $atts, array(
 		'id'                     => 0,
 		'data-key'               => $key,
-		'data-name'              => get_option( 'blogname' ),
+		'data-name'              => $subscription->name,
 		'data-description'       => $subscription->description,
 		'data-label'             => sprintf( __( 'Join %s', 'rcp' ), $subscription->name ),
 		'data-panel-label'       => $is_trial ? __( 'Start Trial', 'rcp' ) : __( 'Register', 'rcp' ),
 		'data-amount'            => $amount * rcp_stripe_get_currency_multiplier(),
 		'data-locale'            => 'auto',
 		'data-allow-remember-me' => true,
-		'data-currency'          => rcp_get_currency(),
-		'data-alipay'            => isset( $rcp_options['stripe_alipay'] ) && '1' === $rcp_options['stripe_alipay'] && 'USD' === rcp_get_currency() ? 'true' : 'false'
+		'data-currency'          => rcp_get_currency()
 	) );
 
 	if ( empty( $data['data-email'] ) && ! empty( $member->user_email ) ) {
@@ -332,10 +331,6 @@ function rcp_register_form_stripe_checkout( $atts ) {
 	}
 
 	$data = apply_filters( 'rcp_stripe_checkout_data', $data );
-
-	if ( 'USD' !== rcp_get_currency() ) {
-		unset( $data['data-alipay'] );
-	}
 
 	ob_start();
 

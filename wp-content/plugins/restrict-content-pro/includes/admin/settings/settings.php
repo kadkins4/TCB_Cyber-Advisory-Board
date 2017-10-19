@@ -392,17 +392,6 @@ function rcp_settings_page() {
 								<p class="description"><?php _e('Enter your live publishable key.', 'rcp'); ?></p>
 							</td>
 						</tr>
-						<?php if ( 'USD' === rcp_get_currency() ) : ?>
-						<tr>
-							<th>
-								<label for="rcp_settings[stripe_alipay]"><?php _e( 'Enable Alipay Support', 'rcp' ); ?></label>
-							</th>
-							<td>
-								<input type="checkbox" value="1" name="rcp_settings[stripe_alipay]" id="rcp_settings[stripe_alipay]" <?php if( isset( $rcp_options['stripe_alipay'] ) ) checked( '1', $rcp_options['stripe_alipay'] ); ?>/>
-								<span class="description"><?php _e( 'Check to enable Alipay support in Stripe Checkout. Alipay is only available with Stripe Checkout. It does not work with the standard Stripe gateway.', 'rcp' ); ?></span>
-							</td>
-						</tr>
-						<?php endif; ?>
 						<tr>
 							<th colspan=2>
 								<p><strong><?php _e('Note', 'rcp'); ?></strong>: <?php _e('in order for subscription payments made through Stripe to be tracked, you must enter the following URL to your <a href="https://dashboard.stripe.com/account/webhooks" target="_blank">Stripe Webhooks</a> under Account Settings:', 'rcp'); ?></p>
@@ -1359,10 +1348,10 @@ function rcp_settings_page() {
 						</tr>
 						<tr valign="top">
 							<th>
-								<label for="rcp_settings[invoice_notes]"><?php _e( 'Notes', 'rcp' ); ?></label>
+								<label for="rcp_settings_invoice_notes"><?php _e( 'Notes', 'rcp' ); ?></label>
 							</th>
 							<td>
-								<textarea id="rcp_settings[invoice_notes]" style="width: 300px; height: 100px;" name="rcp_settings[invoice_notes]"><?php if( isset( $rcp_options['invoice_notes'] ) ) { echo $rcp_options['invoice_notes']; } ?></textarea>
+								<?php wp_editor( $rcp_options['invoice_notes'], 'rcp_settings_invoice_notes', array( 'textarea_name' => 'rcp_settings[invoice_notes]', 'teeny' => true ) ); ?>
 								<p class="description"><?php _e( 'Enter additional notes you would like displayed below the invoice totals.', 'rcp' ); ?></p>
 							</td>
 						</tr>

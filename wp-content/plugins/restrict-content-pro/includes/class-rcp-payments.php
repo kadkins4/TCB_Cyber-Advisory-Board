@@ -301,7 +301,7 @@ class RCP_Payments {
 	 *
 	 * @access  public
 	 * @since   1.5
-	 * @return  object
+	 * @return  object|null Database object or null if payment not found.
 	 */
 	public function get_payment( $payment_id = 0 ) {
 
@@ -309,11 +309,13 @@ class RCP_Payments {
 
 		$payment = $wpdb->get_row( $wpdb->prepare( "SELECT * FROM {$this->db_name} WHERE id = %d", absint( $payment_id ) ) );
 
-		if ( empty( $payment->status ) ) {
-			$payment->status = 'complete';
-		}
+		if ( is_object( $payment ) ) {
+			if ( empty( $payment->status ) ) {
+				$payment->status = 'complete';
+			}
 
-		$payment = $this->backfill_payment_data( $payment );
+			$payment = $this->backfill_payment_data( $payment );
+		}
 
 		return $payment;
 
@@ -405,9 +407,10 @@ class RCP_Payments {
 
 		global $wpdb;
 
-		$payment = $wpdb->get_row( "SELECT * FROM {$this->db_name} WHERE {$field} = {$value}" );
+		$query   = $wpdb->prepare( "SELECT * FROM {$this->db_name} WHERE {$field} = %s", sanitize_text_field( $value ) );
+		$payment = $wpdb->get_row( $query );
 
-		if( empty( $payment->status ) ) {
+		if( is_object( $payment ) && empty( $payment->status ) ) {
 			$payment->status = 'complete';
 		}
 

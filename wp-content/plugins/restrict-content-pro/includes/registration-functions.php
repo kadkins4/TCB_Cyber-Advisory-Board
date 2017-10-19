@@ -18,8 +18,6 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 /**
  * Register a new user
  *
- * @uses rcp_add_user_to_subscription()
- *
  * @access public
  * @since  1.0
  * @return void
@@ -244,6 +242,11 @@ function rcp_process_registration() {
 
 		if( ! empty( $discount ) && $full_discount ) {
 
+			// Cancel existing subscription.
+			if ( $member->can_cancel() ) {
+				$member->cancel_payment_profile( false );
+			}
+
 			// Full discount with auto renew should never expire.
 			if ( '2' != rcp_get_auto_renew_behavior() ) {
 				update_user_meta( $user_data['id'], 'rcp_pending_expiration_date', 'none' );
@@ -300,6 +303,11 @@ function rcp_process_registration() {
 
 	// process a free or trial subscription
 	} else {
+
+		// Cancel existing subscription.
+		if ( $member->can_cancel() ) {
+			$member->cancel_payment_profile( false );
+		}
 
 		$member->set_recurring( false );
 
@@ -904,7 +912,23 @@ add_action( 'rcp_registration_init', 'rcp_add_prorate_fee' );
  * @return void
  */
 function rcp_add_prorate_message() {
-	if ( ! $amount = rcp_get_member_prorate_credit() ) {
+	$upgrade_paths = rcp_get_upgrade_paths( get_current_user_id() );
+	$has_upgrade   = false;
+
+	/*
+	 * The proration message should only be shown if the user has at least one upgrade
+	 * option available where the price is greater than $0.
+	 */
+	if ( ! empty( $upgrade_paths ) ) {
+		foreach ( $upgrade_paths  as $subscription_level ) {
+			if ( $subscription_level->id != rcp_get_subscription_id() && ( $subscription_level->price > 0 || $subscription_level->fee > 0 ) ) {
+				$has_upgrade = true;
+				break;
+			}
+		}
+	}
+
+	if ( ( ! $amount = rcp_get_member_prorate_credit() ) || ( ! $has_upgrade ) ) {
 		return;
 	}
 
