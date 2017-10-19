@@ -3068,6 +3068,23 @@ function create_posttype() {
 							),
 					)
 			);
+
+			register_post_type( 'advertisement',
+			// CPT Options
+					array(
+							'labels' => array(
+									'name' => __( 'Advertisement' ),
+									'singular_name' => __( 'Advertisement' )
+							),
+							'public' => true,
+							'has_archive' => true,
+							'rewrite' => array('slug' => 'ads'),
+							'taxonomies' => array('category'),
+							'supports' => array(
+								'title', 'editor', 'revisions', 'tag'
+							),
+					)
+			);
 }
 
 // Hooking up our function to theme setup
