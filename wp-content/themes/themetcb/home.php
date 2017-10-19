@@ -209,11 +209,10 @@
       <div class="holder-container">
         <div id="whitepaper">
           <div class="holder-container inside-whitepaper">
-          <div class="explanation">
-            <h5>What Are WhitePapers?</h5>
-            <p>The Cipher Brief adds a layer of analysis to our reporting by identifying areas of agreement and disagreement by Cyber Advisory Board members and producing a White Paper that is available only to subscribers.</p>
-          </div>
-          <div class="vert-container">
+            <div class="explanation">
+              <p>The Cipher Brief adds a layer of analysis to our reporting by identifying areas of agreement and disagreement by Cyber Advisory Board members and producing a White Paper that is available only to subscribers.</p>
+            </div>
+            <div class="vert-container">
             <?php
             $wpb_all_query = new WP_Query(array(
               'post_type'=> 'whitepapers',
@@ -224,19 +223,19 @@
             ));
             ?>
           <?php if ( $wpb_all_query->have_posts() ) : ?>
-
+            <ul>
               <!-- the loop -->
               <?php while ( $wpb_all_query->have_posts() ) : $wpb_all_query->the_post(); ?>
                 <div class="whitepaper-entry">
                   <a href="<?php the_permalink(); ?>">
-                    <h3 style="text-transform: capitalize;"><?php the_title(); ?></h3>
-                    <!-- echo wp_trim_words(get_the_title(), 4, '...'); -->
+                    <li>
+                      <h3><?php the_title(); ?></h3>
+                    </li>
                   </a>
-                  <h5>By The Cipher Brief Staff</h5>
                 </div>
               <?php endwhile; ?>
               <!-- end of the loop -->
-
+            </ul>
               <?php wp_reset_postdata(); ?>
 
           <?php else : ?>
