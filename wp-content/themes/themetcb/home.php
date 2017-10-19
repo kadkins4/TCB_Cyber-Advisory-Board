@@ -150,7 +150,24 @@
   <!-- <a href="/category/threat-stream" class="view_more">VIEW MORE</a> -->
     </div>
     <div class="col-ad">
-      <div class="sidebar_ad" id="side_ad1">AD SPACE 250x400</div>
+      <div class="sidebar_ad" id="side_ad1">
+        <?php
+          $wpb_all_query = new WP_Query(array(
+            'post_type' => 'advertisement',
+            'post_status' => 'publish',
+            'category_name' => 'sidebar1',
+            'posts_per_page' => 1
+          ));
+            ?>
+            <?php if ( $wpb_all_query->have_posts() ) : ?>
+                <!-- the loop -->
+                <?php while ( $wpb_all_query->have_posts() ) : $wpb_all_query->the_post(); ?>
+                  <?php the_content(); ?>
+                <?php endwhile; ?>
+                <!-- end of the loop -->
+                <?php wp_reset_postdata(); ?>
+            <?php endif; ?>
+      </div>
     </div>
   </div>
   </div>
@@ -279,6 +296,22 @@
 
     <div class="col-ad">
       <div class="sidebar_ad2" id="side_ad2">
+        <?php
+          $wpb_all_query = new WP_Query(array(
+            'post_type' => 'advertisement',
+            'post_status' => 'publish',
+            'category_name' => 'sidebar2',
+            'posts_per_page' => 1
+          ));
+            ?>
+            <?php if ( $wpb_all_query->have_posts() ) : ?>
+                <!-- the loop -->
+                <?php while ( $wpb_all_query->have_posts() ) : $wpb_all_query->the_post(); ?>
+                  <?php the_content(); ?>
+                <?php endwhile; ?>
+                <!-- end of the loop -->
+                <?php wp_reset_postdata(); ?>
+            <?php endif; ?>
       </div>
     </div>
 
