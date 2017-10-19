@@ -1620,7 +1620,7 @@ class Test_Terms {
             'query_var'                         => true,
             'rewrite'                           => array('slug' =>'author')
         );
-        register_taxonomy( 'authors', array( 'post', 'whitepapers', 'cyberadvisorcolumn', 'threatreport' ), $args );
+        register_taxonomy( 'authors', array( 'post', 'whitepapers', 'cyberadvisorcolumn' ), $args );
     }
 
     function register_new_terms() {
@@ -3035,22 +3035,6 @@ function create_posttype() {
 							'title', 'editor', 'thumbnail', 'revisions'
 						),
         )
-			);
-
-			register_post_type( 'threatstream',
-			// CPT Options
-					array(
-							'labels' => array(
-									'name' => __( 'Threat Stream' ),
-									'singular_name' => __( 'Threat Stream' )
-							),
-							'public' => true,
-							'has_archive' => true,
-							'rewrite' => array('slug' => 'threat-stream'),
-							'supports' => array(
-								'title', 'editor', 'thumbnail', 'revisions'
-							),
-					)
 			);
 
 			register_post_type( 'promoblock',
