@@ -3037,16 +3037,16 @@ function create_posttype() {
         )
 			);
 
-			register_post_type( 'threatreport',
+			register_post_type( 'threatstream',
 			// CPT Options
 					array(
 							'labels' => array(
-									'name' => __( 'Threat Report' ),
-									'singular_name' => __( 'Threat Report' )
+									'name' => __( 'Threat Stream' ),
+									'singular_name' => __( 'Threat Stream' )
 							),
 							'public' => true,
 							'has_archive' => true,
-							'rewrite' => array('slug' => 'threat-report'),
+							'rewrite' => array('slug' => 'threat-stream'),
 							'supports' => array(
 								'title', 'editor', 'thumbnail', 'revisions'
 							),
