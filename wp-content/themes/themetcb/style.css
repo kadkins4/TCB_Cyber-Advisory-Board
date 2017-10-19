@@ -283,7 +283,7 @@ h3 {
   margin: 15px 0 0 0;
 }
 
-#our_latest_news h3 a, #cyber-advisor-column-entry h3 a, .threat-report-entry h3 a {
+#our_latest_news h3 a, #cyber-advisor-column-entry h3 a, .threat-stream-entry h3 a {
   line-height: 1.2;
   font-size: 18px;
 }
@@ -293,7 +293,7 @@ h3 {
 }
 
 
-#our_latest_news h3 a, .threat-report-entry h3 a {
+#our_latest_news h3 a, .threat-stream-entry h3 a {
   font-weight: 700;
 }
 
@@ -353,7 +353,7 @@ h3 {
   font-family: 'replica-pro';
 }
 
-#our_latest_news .author_name, #threat-report .author_name {
+#our_latest_news .author_name, #threat-stream .author_name {
   color: #077cc2;
   text-align: left;
 }
@@ -374,20 +374,20 @@ div.search-block {
     margin: 0 auto;
 }
 
-#threat-report h3 a {
+#threat-stream h3 a {
   text-transform: none;
   display: block;
   margin: 0 0 -5px 0;
 }
 
-#threat-report {
+#threat-stream {
   min-height: 90vh;
   height: fit-content;
   border-bottom: 1px #C8C8C8 solid;
   padding-bottom: 1%;
 }
 
-.threat-report-entry {
+.threat-stream-entry {
   margin: 8% 0 0 0;
   display: flex;
   flex-direction: column;
@@ -452,7 +452,7 @@ box-sizing: border-box;
 
 }
 
-.category-threat-report .brief-contain p {
+.category-threat-stream .brief-contain p {
   display: none;
 }
 
@@ -6339,7 +6339,7 @@ input[type="search"] {
   .col-title a {
     font-size: 70%;
   }
-  #our_latest_news h3 a, #cyber-advisor-column-entry h3 a, .threat-report-entry h3 a {
+  #our_latest_news h3 a, #cyber-advisor-column-entry h3 a, .threat-stream-entry h3 a {
     font-size: 100%;
   }
 }

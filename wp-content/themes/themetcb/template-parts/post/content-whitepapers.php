@@ -191,7 +191,7 @@ global $article_exerpt;
                         </div>
                     <?php }?>
                     <div class="views-field-nothing">
-                    
+
                     </div>
                 </div>
                 <?php

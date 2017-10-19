@@ -112,14 +112,14 @@
 
     <!-- Threats -->
     <div class="col">
-    <div id="threat-report">
-      <h1 class="col-title"><a href="/category/threat-report">THREAT stream</a></h1>
+    <div id="threat-stream">
+      <h1 class="col-title"><a href="/category/threat-stream">THREAT stream</a></h1>
       <?php
   // the query
   $wpb_all_query = new WP_Query(array(
 
     'post_type'=>'post',
-    'category_name' => 'threat report',
+    'category_name' => 'threatstream',
     'post_status'=>'publish',
     'showposts'=> 8
   ));
@@ -130,7 +130,7 @@
 
       <!-- the loop -->
       <?php while ( $wpb_all_query->have_posts() ) : $wpb_all_query->the_post(); ?>
-        <div class="threat-report-entry">
+        <div class="threat-stream-entry">
           <h3><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
           <?php $postID = get_the_ID() ?>
           <?php $author = wp_get_post_terms($post->ID, 'authors'); ?>
@@ -147,7 +147,7 @@
   <?php else : ?>
       <p><?php _e( 'Sorry, no posts matched your criteria.' ); ?></p>
   <?php endif; ?>
-  <!-- <a href="/category/threat-report" class="view_more">VIEW MORE</a> -->
+  <!-- <a href="/category/threat-stream" class="view_more">VIEW MORE</a> -->
     </div>
     <div class="col-ad">
       <div class="sidebar_ad" id="side_ad1">AD SPACE 250x400</div>
