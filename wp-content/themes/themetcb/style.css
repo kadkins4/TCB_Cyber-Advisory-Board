@@ -79,7 +79,7 @@ h3 {
   font-size: 20px;
 }
 
-.col-title a {
+.col-title a, #threat-stream h1 {
   text-decoration: none;
   color: white;
   background-color: #000e31;
@@ -6336,7 +6336,7 @@ input[type="search"] {
   .holder-container h3, .holder-container .author_name {
     font-size: 90%!important;
   }
-  .col-title a {
+  .col-title a, #threat-stream h1 {
     font-size: 70%;
   }
   #our_latest_news h3 a, #cyber-advisor-column-entry h3 a, .threat-stream-entry h3 a {

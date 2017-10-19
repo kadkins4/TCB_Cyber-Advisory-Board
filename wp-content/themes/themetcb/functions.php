@@ -3037,22 +3037,6 @@ function create_posttype() {
         )
 			);
 
-			register_post_type( 'threatstream',
-			// CPT Options
-					array(
-							'labels' => array(
-									'name' => __( 'Threat Stream' ),
-									'singular_name' => __( 'Threat Stream' )
-							),
-							'public' => true,
-							'has_archive' => true,
-							'rewrite' => array('slug' => 'threat-stream'),
-							'supports' => array(
-								'title', 'editor', 'thumbnail', 'revisions'
-							),
-					)
-			);
-
 			register_post_type( 'promoblock',
 			// CPT Options
 					array(
