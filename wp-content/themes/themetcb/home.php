@@ -296,6 +296,7 @@
 
     <div class="col-ad">
       <div class="sidebar_ad2" id="side_ad2">
+        <?php /*
         <?php
           $wpb_all_query = new WP_Query(array(
             'post_type' => 'advertisement',
@@ -312,6 +313,7 @@
                 <!-- end of the loop -->
                 <?php wp_reset_postdata(); ?>
             <?php endif; ?>
+            */ ?>
       </div>
     </div>
 

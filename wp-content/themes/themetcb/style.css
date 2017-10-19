@@ -495,14 +495,14 @@ box-sizing: border-box;
 
 .sidebar_ad {
   /* dummy text */
-  display: flex;
+  /*display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   color: red;
   font-size: 26px;
   background-color: #eee;
-  border: 1px solid red;
+  border: 1px solid red;*/
   /* end dummy text */
   margin-top: 5vh;
   height: 400px;
@@ -512,14 +512,14 @@ box-sizing: border-box;
 
 .sidebar_ad2 {
   /* dummy text */
-  border: 1px solid red;
+  /*border: 1px solid red;
   align-items: center;
   background-color: #eee;
   color: red;
   font-size: 26px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: center;*/
   /* end dummy text */
   height: 450px;
   width: 250px;
