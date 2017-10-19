@@ -1620,7 +1620,7 @@ class Test_Terms {
             'query_var'                         => true,
             'rewrite'                           => array('slug' =>'author')
         );
-        register_taxonomy( 'authors', array( 'post', 'whitepapers', 'cyberadvisorcolumn', 'threatreport' ), $args );
+        register_taxonomy( 'authors', array( 'post', 'whitepapers', 'cyberadvisorcolumn' ), $args );
     }
 
     function register_new_terms() {
@@ -3081,7 +3081,40 @@ function create_posttype() {
 							'rewrite' => array('slug' => 'ads'),
 							'taxonomies' => array('category'),
 							'supports' => array(
-								'title', 'editor', 'revisions', 'tag'
+								'title', 'editor', 'revisions'
+							),
+					)
+			);
+
+			register_post_type( 'cipherbook',
+			// CPT Options
+					array(
+							'labels' => array(
+									'name' => __( 'Cipher Book' ),
+									'singular_name' => __( 'Cipher Book' )
+							),
+							'public' => true,
+							'has_archive' => true,
+							'rewrite' => array('slug' => 'cipherbook'),
+							'taxonomies' => array('category'),
+							'supports' => array(
+								'title', 'editor', 'revisions'
+							),
+					)
+			);
+
+			register_post_type( 'board',
+			// CPT Options
+					array(
+							'labels' => array(
+									'name' => __( 'Meet Our Board' ),
+									'singular_name' => __( 'Meet Our Board' )
+							),
+							'public' => true,
+							'has_archive' => true,
+							'rewrite' => array('slug' => 'board'),
+							'supports' => array(
+								'title', 'editor', 'revisions'
 							),
 					)
 			);

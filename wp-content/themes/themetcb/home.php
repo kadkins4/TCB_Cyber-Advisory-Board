@@ -119,12 +119,10 @@
   $wpb_all_query = new WP_Query(array(
 
     'post_type'=>'post',
-    'category_name' => 'threatstream',
     'post_status'=>'publish',
     'showposts'=> 8
   ));
     ?>
-
 
   <?php if ( $wpb_all_query->have_posts() ) : ?>
 
@@ -134,9 +132,11 @@
           <h3><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
           <?php $postID = get_the_ID() ?>
           <?php $author = wp_get_post_terms($post->ID, 'authors'); ?>
-          <h5><a class="author_name" href="<?php the_permalink(); ?>">
+          <h5>
+            <a class="author_name" href="<?php the_permalink(); ?>">
               <?=$author[0]->name?>
-          </a></h5>
+            </a>
+          </h5>
         </div>
       <?php endwhile; ?>
       <!-- end of the loop -->
