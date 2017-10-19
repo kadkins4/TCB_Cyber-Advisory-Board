@@ -127,7 +127,6 @@
   ));
     ?>
 
-
   <?php if ( $wpb_all_query->have_posts() ) : ?>
 
       <!-- the loop -->
