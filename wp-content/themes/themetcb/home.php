@@ -136,13 +136,13 @@
           <?php $author = wp_get_post_terms($post->ID, 'authors'); ?>
           <?php $alt_link = wp_get_post_terms($post->ID, 'alt_links'); ?>
           <?php if ( $alt_link[0] ) : ?>
-            <h3><a href="<?php echo $alt_link[0]->name;?>"><?php the_title(); ?></a></h3>
-            <h5><a class="author_name" href="<?php echo $alt_link[0]->name;?>">
+            <h3><a target="_blank" href="<?php echo $alt_link[0]->name;?>"><?php the_title(); ?></a></h3>
+            <h5><a target="_blank" class="author_name" href="<?php echo $alt_link[0]->name;?>">
                 <?=$author[0]->name?>
             </a></h5>
           <?php else : ?>
-          <h3><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
-          <h5><a class="author_name" href="<?php the_permalink(); ?>">
+          <h3><a target="_blank" href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
+          <h5><a target="_blank" class="author_name" href="<?php the_permalink(); ?>">
               <?=$author[0]->name?>
           </a></h5>
         <?php endif; ?>
