@@ -186,7 +186,7 @@
   <div class="holder-container">
     <div id="ciphertake">
       <h1 class="col-title"><a href="/category/ciphertake"> the CIPHER TAKE</a></h1>
-      <div class="row">
+      <div class="row" id="mob-col">
         <?php
           $wpb_all_query = new WP_Query(array(
             'post_type' => 'post',

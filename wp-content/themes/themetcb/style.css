@@ -6299,13 +6299,7 @@ input[type="search"] {
 19.0 Media Queries
 --------------------------------------------------------------*/
 @media screen and (max-width: 667px) and (orientation: portrait) {
-  #ciphertake {
-    display: none;
-  }
-  .ciphertake-entry p {
-    height: 30%;
-    overflow: scroll;
-  }
+
 }
 
 @media only screen
@@ -6406,6 +6400,13 @@ input[type="search"] {
 }
 .promo_blocks {
   width: 19.7%;
+}
+
+#mob-col {
+  flex-direction: column;
+}
+.ciphertake-entry {
+  width: 100%;
 }
 
 }
