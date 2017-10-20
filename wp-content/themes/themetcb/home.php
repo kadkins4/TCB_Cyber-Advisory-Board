@@ -113,7 +113,7 @@
     <!-- Threats -->
     <div class="col">
     <div id="threat-stream">
-      <h1 class="col-title">THREAT stream</h1>
+      <h1 class="col-title"><a>THREAT stream</a></h1>
       <?php
   // the query
   $wpb_all_query = new WP_Query(array(
@@ -136,13 +136,13 @@
           <?php $author = wp_get_post_terms($post->ID, 'authors'); ?>
           <?php $alt_link = wp_get_post_terms($post->ID, 'alt_links'); ?>
           <?php if ( $alt_link[0] ) : ?>
-            <h3><a href="<?php echo $alt_link[0]->name;?>"><?php the_title(); ?></a></h3>
-            <h5><a class="author_name" href="<?php echo $alt_link[0]->name;?>">
+            <h3><a target="_blank" href="<?php echo $alt_link[0]->name;?>"><?php the_title(); ?></a></h3>
+            <h5><a target="_blank" class="author_name" href="<?php echo $alt_link[0]->name;?>">
                 <?=$author[0]->name?>
             </a></h5>
           <?php else : ?>
-          <h3><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
-          <h5><a class="author_name" href="<?php the_permalink(); ?>">
+          <h3><a target="_blank" href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
+          <h5><a target="_blank" class="author_name" href="<?php the_permalink(); ?>">
               <?=$author[0]->name?>
           </a></h5>
         <?php endif; ?>
@@ -201,18 +201,18 @@
               <!-- the loop -->
               <?php while ( $wpb_all_query->have_posts() ) : $wpb_all_query->the_post(); ?>
                 <div class="ciphertake-entry">
-                  <h3><a href="<?php the_permalink(); ?>">Headline: <?php the_title(); ?></a></h3>
+                  <h3>Headline: <?php the_title(); ?></h3>
                     <?php function get_paragraph($string, $paraNum) {
                       $string = strip_tags($string, '<a><b><i>');
                       $newVar = wpautop($string);
                       $entry = explode('<p>', $newVar);
                       return $entry[$paraNum];
                     } ?>
-                  <p class="cab-hide"><?php echo get_paragraph(get_the_content(), 1);?> </p>
+                  <p><?php echo get_paragraph(get_the_content(), 1);?> </p>
                 </div>
                 <div class="ciphertake-entry">
-                  <h3><a href="<?php the_permalink(); ?>">The Cipher Take:</a></h3>
-                  <p class="cab-hide"><?php echo get_paragraph(get_the_content(), 2);?> </p>
+                  <h3>The Cipher Take:</h3>
+                  <p><?php echo get_paragraph(get_the_content(), 2);?> </p>
                 </div>
               <?php endwhile; ?>
               <!-- end of the loop -->
