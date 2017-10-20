@@ -205,11 +205,17 @@ global $article_exerpt;
     ?>
     <?php endif; ?>
 
-    <div style="width: 35vw; margin: 0 auto;">
+    <div>
       <?php if( ! is_user_logged_in() ) : ?>
-        <?php echo do_shortcode("[login_form]"); ?>
+        <div style="width: 35vw; margin: 0 auto;">
+          <?php echo do_shortcode("[login_form]"); ?>
+        </div>
       <?php else : ?>
-        <div class="rcp_logged_in"><a href="<?php echo wp_logout_url( home_url() ); ?>"><?php _e( 'Log out', 'rcp' ); ?></a></div>
+        <div class="rcp_logged_in">
+          <a href="<?php echo wp_logout_url( home_url() ); ?>" class="log_off_form">
+            <?php _e( 'Log out', 'rcp' ); ?>
+          </a>
+        </div>
       <?php endif; ?>
     </div>
 

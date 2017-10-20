@@ -535,6 +535,17 @@ box-sizing: border-box;
 .promo-holder {
   width: fit-content;
 }
+
+.log_off_form {
+  background-color: #000f33;
+  padding: 10px 15px;
+  text-transform: uppercase;
+  border: 1px solid #000f33;
+  border-radius: 2px;
+  font-size: 14px;
+  font-family: 'replica-pro';
+  color: white!important;
+}
 /*--------------------------------------------------------------
 1.0 Normalize
 Styles based on Normalize v5.0.0 @link https://github.com/necolas/normalize.css
