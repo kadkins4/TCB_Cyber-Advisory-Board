@@ -18,8 +18,8 @@
     <meta charset="<?php bloginfo( 'charset' ); ?>">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="profile" href="http://gmpg.org/xfn/11">
-	<base href="<?php echo get_site_url(); ?>/">
-    <meta name="twitter:image" content="https://www.thecipherbrief.com/wp-content/uploads/2017/09/resizedCipherWhite.jpg" />
+	  <base href="<?php echo get_site_url(); ?>/">
+    <meta name="twitter:image" content="https://thecipherbriefcyber.com/wp-content/uploads/2017/10/Cyber-Advisory-Board-Logo-website-header-size.png" />
     <?php wp_head(); ?>
     <meta name="twitter:site" content="@thecipherbrief" />
     <meta name="twitter:image:width" content="1024" />
@@ -40,7 +40,7 @@
 	<div class="header_baner">
 		<div class="col-mdws-1"><img class="sumome-icon" src="//sumo.com/client/images/apps/408190b5-e369-48af-8e31-afb7380ecd66/transparent-crown-dark.png"></div>
 		<div class="col-mdws-2 baner_content_center">
-				<p>BECOME A SUBSCRIBER FOR MORE EXPERT ANALYSIS  & COMMENTARY</p>
+				<p>BECOME A SUBSCRIBER FOR MORE EXPERT ANALYSIS & COMMENTARY</p>
 				<span class="header_baner_btn">
 
 					<a href="https://www.tcbconference.com/cyber-advisory-board" class="sumome-smartbar-button">SIGN UP</a>
