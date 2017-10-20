@@ -6368,11 +6368,11 @@ input[type="search"] {
   #our_latest_news h3 a, #cyber-advisor-column-entry h3 a, .threat-stream-entry h3 a {
     font-size: 100%;
   }
-  #side_ad1 a img {
+  #aw0 img {
     width: 63%;
     height: 100%;
   }
-  #side_ad1 html body {
+  div#google_image_div {
     margin-left: 25%;
   }
   .third-section-container .col-ad {
