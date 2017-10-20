@@ -3098,7 +3098,7 @@ function create_posttype() {
 							'has_archive' => true,
 							'rewrite' => array('slug' => 'board'),
 							'supports' => array(
-								'title', 'editor', 'revisions'
+								'title', 'editor', 'revisions', 'thumbnail'
 							),
 					)
 			);
