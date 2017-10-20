@@ -79,7 +79,7 @@ h3 {
   font-size: 20px;
 }
 
-.col-title a, #threat-stream h1 {
+.col-title a, #threat-stream h1 a {
   text-decoration: none;
   color: white;
   background-color: #000e31;
@@ -420,7 +420,7 @@ div.search-block {
   width: 47%;
 }
 
-.ciphertake-entry h3 a {
+.ciphertake-entry h3 {
   margin: 5px 0 15px 0;
   color: #077cc2;
   font-size: 18px;
@@ -6288,9 +6288,28 @@ input[type="search"] {
 19.0 Media Queries
 --------------------------------------------------------------*/
 @media screen and (max-width: 667px) and (orientation: portrait) {
-    #block-views-cipher_take-block, #block-views-home-reporter_links {
-        display: none;
+  #ciphertake {
+    display: none;
+  }
+  .ciphertake-entry p {
+    height: 30%;
+    overflow: scroll;
+  }
+}
+
+@media only screen
+  and (min-width: 768px)
+  and (max-width: 1024px)
+  and (-webkit-min-device-pixel-ratio: 1) {
+
+    .col-title {
+      background-color: #000e31;
+      min-height: 70px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
     }
+
 }
 
 @media screen and (max-width: 667px) {
@@ -6324,7 +6343,7 @@ input[type="search"] {
     border-right: none;
   }
   .meet_board {
-    width: 35%;
+    width: 350px;
     height: auto;
   }
   .cab-hide {
@@ -6336,12 +6355,42 @@ input[type="search"] {
   .holder-container h3, .holder-container .author_name {
     font-size: 90%!important;
   }
-  .col-title a, #threat-stream h1 {
+  .col-title a, #threat-stream h1 a {
     font-size: 70%;
+  }
+  .col-title {
+    background-color: #000e31;
+    min-height: 90px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
   }
   #our_latest_news h3 a, #cyber-advisor-column-entry h3 a, .threat-stream-entry h3 a {
     font-size: 100%;
   }
+  #side_ad1 a img {
+    width: 63%;
+    height: 100%;
+  }
+  #side_ad1 html body {
+    margin-left: 25%;
+  }
+  .third-section-container .col-ad {
+    display: none;
+}
+.explanation {
+  display: none;
+}
+#whitepaper, .meet_board {
+  height: 330px;
+}
+.promo-holder {
+  width: 100%;
+}
+.promo_blocks {
+  width: 19.7%;
+}
+
 }
 
 
