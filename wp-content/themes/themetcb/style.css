@@ -6312,6 +6312,12 @@ input[type="search"] {
 
 }
 
+@media screen and (max-width: 767px) {
+  .sidebar_ad {
+    display: none;
+  }
+}
+
 @media screen and (max-width: 667px) {
   .site-content.post_content.about_page {
     padding: 0 1.2px 0 1.2px;
@@ -6368,13 +6374,13 @@ input[type="search"] {
   #our_latest_news h3 a, #cyber-advisor-column-entry h3 a, .threat-stream-entry h3 a {
     font-size: 100%;
   }
-  #aw0 img {
+  /*#aw0 img {
     width: 63%;
     height: 100%;
   }
   div#google_image_div {
     margin-left: 25%;
-  }
+  }*/
   .third-section-container .col-ad {
     display: none;
 }
