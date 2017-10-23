@@ -179,10 +179,27 @@
       </div>
     </div>
   </div>
-  </div>
+</div>
 
+<?php /* <div class="mobile-ad1"> MOBILE AD 325x100
+    <?php
+      $wpb_all_query = new WP_Query(array(
+        'post_type' => 'advertisement',
+        'post_status' => 'publish',
+        'category_name' => 'sidebar1',
+        'posts_per_page' => 1
+      ));
+        ?>
+        <?php if ( $wpb_all_query->have_posts() ) : ?>
+            <!-- the loop -->
+            <?php while ( $wpb_all_query->have_posts() ) : $wpb_all_query->the_post(); ?>
+              <?php the_content(); ?>
+            <?php endwhile; ?>
+            <!-- end of the loop -->
+            <?php wp_reset_postdata(); ?>
+        <?php endif; ?>
+</div> */ ?>
   <!-- Cipher Take -->
-
   <div class="holder-container">
     <div id="ciphertake">
       <h1 class="col-title"><a href="/category/ciphertake"> the CIPHER TAKE</a></h1>
@@ -285,7 +302,7 @@
 
       </div>
 
-      <div class="holder-container promo-holder">
+      <div class="promo-holder">
         <!-- Promo Blocks -->
         <div class="promo_blocks">
           <h3>How to Subscribe</h3>
@@ -326,10 +343,30 @@
       </div>
     </div>
 
+
   </div>
 
   </div>
+  <?php /*
+  <div class="mobile-ad1"> MOBILE AD 325x100
+    <?php
+    $wpb_all_query = new WP_Query(array(
+    'post_type' => 'advertisement',
+    'post_status' => 'publish',
+    'category_name' => 'sidebar1',
+    'posts_per_page' => 1
+  ));
+  ?>
+  <?php if ( $wpb_all_query->have_posts() ) : ?>
+  <!-- the loop -->
+  <?php while ( $wpb_all_query->have_posts() ) : $wpb_all_query->the_post(); ?>
+  <?php the_content(); ?>
+  <?php endwhile; ?>
+  <!-- end of the loop -->
+  <?php wp_reset_postdata(); ?>
+  <?php endif; ?>
 </div>
+*/?>
 
     <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
     <script>(adsbygoogle = window.adsbygoogle || []).push({google_ad_client: "ca-pub-7418758779618043",enable_page_level_ads: true});</script>

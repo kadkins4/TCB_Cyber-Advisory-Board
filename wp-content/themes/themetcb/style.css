@@ -62,14 +62,12 @@ h3 {
   font-size: 13px;
   margin: 0;
   font-family: 'replica-pro';
-
 }
 
 .board_link {
   font-size: 11px;
   font-family: 'replica-pro';
 }
-
 
 .col-title {
   text-align: center;
@@ -90,7 +88,6 @@ h3 {
   font-size: 20px;
 }
 
-
 .third-section .col-title a {
   /*background-color: white;*/
   /*color: #000e31;*/
@@ -98,11 +95,9 @@ h3 {
   width: fit-content;
 }
 
-
 .col-title a:hover {
   color: white!important;
 }
-
 
 /*.third-section .col-title a:hover {
   color: #000e31!important;
@@ -297,7 +292,6 @@ h3 {
   font-weight: 700;
 }
 
-
 #recent-news, #cab {
   border-right: 1px #C8C8C8 solid;
   padding-right: 2%;
@@ -307,7 +301,6 @@ h3 {
 #our_latest_news, #cyber-advisor-column-entry {
   margin: 5% 0;
 }
-
 
 #cyber-advisor-column-entry a {
   font-weight: 700;
@@ -415,7 +408,6 @@ div.search-block {
   display: none;
 }
 
-
 .ciphertake-entry {
   width: 47%;
 }
@@ -463,10 +455,6 @@ box-sizing: border-box;
   margin: auto 10px auto 0;
   padding: 1.5% 1% 0 1%;
   overflow: scroll;
-}
-
-.promo_blocks:last-of-type {
-  margin: auto 0 auto 0;
 }
 
 .promo_blocks h3 {
@@ -534,6 +522,8 @@ box-sizing: border-box;
 
 .promo-holder {
   width: fit-content;
+  display: flex;
+  flex-direction: row!important;
 }
 
 .log_off_form {
@@ -545,6 +535,14 @@ box-sizing: border-box;
   font-size: 14px;
   font-family: 'replica-pro';
   color: white!important;
+}
+
+.mobile-ad1 {
+  width: 325px;
+  height: 100px;
+  border: 1px solid red;
+  background-color: grey;
+  display: none;
 }
 /*--------------------------------------------------------------
 1.0 Normalize
@@ -6318,8 +6316,31 @@ input[type="search"] {
 }
 
 @media screen and (max-width: 767px) {
+  body {
+    margin: 0 2px 0 2px!important;
+  }
+
   .sidebar_ad {
     display: none;
+  }
+
+  .mobile-ad1 {
+    display: block;
+  }
+
+  .promo-holder {
+    display: flex;
+    flex-direction: column!important;
+  }
+
+  .promo_blocks {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100vw;
+    height: auto;
+    flex-wrap: wrap;
+    margin: 1% 0 0 0;
   }
 }
 
@@ -6344,6 +6365,7 @@ input[type="search"] {
   #whitepaper {
     flex-wrap: nowrap;
     height: 100%;
+    align-items: space-between;
   }
   .cab-arc-img {
     width: 37%;
@@ -6352,10 +6374,6 @@ input[type="search"] {
   #ciphertake .ciphertake-entry:first-of-type {
     padding: 0;
     border-right: none;
-  }
-  .meet_board {
-    width: 350px;
-    height: auto;
   }
   .cab-hide {
     display: none;
@@ -6386,20 +6404,21 @@ input[type="search"] {
   div#google_image_div {
     margin-left: 25%;
   }*/
-  .third-section-container .col-ad {
-    display: none;
+.third-section-container .col-ad {
+  display: none;
 }
 .explanation {
   display: none;
 }
+.meet_board {
+  max-width: none;
+}
 #whitepaper, .meet_board {
-  height: 330px;
+  height: 60vh;
+  width: 50vw!important;
 }
 .promo-holder {
   width: 100%;
-}
-.promo_blocks {
-  width: 19.7%;
 }
 
 #mob-col {
