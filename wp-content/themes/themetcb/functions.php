@@ -1743,24 +1743,24 @@ class Test_Terms3 {
                 'singular_name'                 => _x('Expert', 'taxonomy singular name'),
                 'search_items'                  => __('Search Experts'),
                 'popular_items'                 => __('Popular Experts'),
-                'all_items'                     => __('All Alt_Links'),
-                'edit_item'                     => __('Edit Alt_Links'),
-                'edit_item'                     => __('Edit Alt_Link'),
-                'update_item'                   => __('Update Alt_Link'),
-                'add_new_item'                  => __('Add New Alt_Link'),
-                'new_item_name'                 => __('New Alt_Link'),
-                'separate_items_with_commas'    => __('Seperate Alt_Links with Commas'),
-                'add_or_remove_items'           => __('Add or Remove Alt_Links'),
-                'choose_from_most_used'         => __('Choose from Most Used Alt_Links')
+                'all_items'                     => __('All Experts'),
+                'edit_item'                     => __('Edit Experts'),
+                'edit_item'                     => __('Edit Experts'),
+                'update_item'                   => __('Update Experts'),
+                'add_new_item'                  => __('Add New Expert'),
+                'new_item_name'                 => __('New Expert'),
+                'separate_items_with_commas'    => __('Seperate Experts with Commas'),
+                'add_or_remove_items'           => __('Add or Remove Experts'),
+                'choose_from_most_used'         => __('Choose from Most Used Experts')
             ),
             'query_var'                         => true,
             'rewrite'                           => array('slug' =>'altlink')
         );
-        register_taxonomy( 'alt_links', array( 'post', 'cyberadvisorcolumn' ), $args );
+        register_taxonomy( 'experts', array( 'cyberadvisorcolumn' ), $args );
     }
 
     function register_new_terms() {
-        $this->taxonomy = 'alt_links';
+        $this->taxonomy = 'experts';
         $this->terms = array (
             '0' => array (
                 'name'          => 'Matt Filbert',
