@@ -181,7 +181,7 @@
   </div>
 </div>
 
-<div class="mobile-ad1"> MOBILE AD 300x100
+<div class="mobile-ad1"> MOBILE AD 325x100
     <?php /* <?php
       $wpb_all_query = new WP_Query(array(
         'post_type' => 'advertisement',
