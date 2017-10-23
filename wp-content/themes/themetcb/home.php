@@ -179,8 +179,27 @@
       </div>
     </div>
   </div>
-  </div>
+</div>
 
+<div class="mobile-ad1"> MOBILE AD 300x100
+    <?php /* <?php
+      $wpb_all_query = new WP_Query(array(
+        'post_type' => 'advertisement',
+        'post_status' => 'publish',
+        'category_name' => 'sidebar1',
+        'posts_per_page' => 1
+      ));
+        ?>
+        <?php if ( $wpb_all_query->have_posts() ) : ?>
+            <!-- the loop -->
+            <?php while ( $wpb_all_query->have_posts() ) : $wpb_all_query->the_post(); ?>
+              <?php the_content(); ?>
+            <?php endwhile; ?>
+            <!-- end of the loop -->
+            <?php wp_reset_postdata(); ?>
+        <?php endif; ?>
+        */ ?>
+</div>
   <!-- Cipher Take -->
 
   <div class="holder-container">

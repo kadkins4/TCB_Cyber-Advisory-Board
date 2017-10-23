@@ -546,6 +546,14 @@ box-sizing: border-box;
   font-family: 'replica-pro';
   color: white!important;
 }
+
+.mobile-ad1 {
+  width: 300px;
+  height: 100px;
+  border: 1px solid red;
+  background-color: grey;
+  display: none;
+}
 /*--------------------------------------------------------------
 1.0 Normalize
 Styles based on Normalize v5.0.0 @link https://github.com/necolas/normalize.css
@@ -6320,6 +6328,10 @@ input[type="search"] {
 @media screen and (max-width: 767px) {
   .sidebar_ad {
     display: none;
+  }
+
+  .mobile-ad1 {
+    display: block;
   }
 }
 
