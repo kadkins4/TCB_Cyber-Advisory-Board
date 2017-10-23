@@ -6361,6 +6361,7 @@ input[type="search"] {
   #whitepaper {
     flex-wrap: nowrap;
     height: 100%;
+    align-items: space-between;
   }
   .cab-arc-img {
     width: 37%;
@@ -6369,10 +6370,6 @@ input[type="search"] {
   #ciphertake .ciphertake-entry:first-of-type {
     padding: 0;
     border-right: none;
-  }
-  .meet_board {
-    width: 350px;
-    height: auto;
   }
   .cab-hide {
     display: none;
@@ -6403,14 +6400,18 @@ input[type="search"] {
   div#google_image_div {
     margin-left: 25%;
   }*/
-  .third-section-container .col-ad {
-    display: none;
+.third-section-container .col-ad {
+  display: none;
 }
 .explanation {
   display: none;
 }
+.meet_board {
+  max-width: none;
+}
 #whitepaper, .meet_board {
-  height: 330px;
+  height: 60vh;
+  width: 50vw!important;
 }
 .promo-holder {
   width: 100%;
