@@ -1722,6 +1722,74 @@ class Test_Terms2 {
 }
 $Test_Terms2 = new Test_Terms2();
 
+class Test_Terms3 {
+
+    function __construct() {
+        register_activation_hook( __FILE__,array( $this,'activate' ) );
+        add_action( 'init', array( $this, 'create_cpts_and_taxonomies' ) );
+    }
+
+    function activate() {
+        $this->create_cpts_and_taxonomies();
+        $this->register_new_terms();
+    }
+
+    function create_cpts_and_taxonomies() {
+
+        $args = array(
+            'hierarchical'                      => true,
+            'labels' => array(
+                'name'                          => _x('Experts', 'taxonomy general name' ),
+                'singular_name'                 => _x('Expert', 'taxonomy singular name'),
+                'search_items'                  => __('Search Experts'),
+                'popular_items'                 => __('Popular Experts'),
+                'all_items'                     => __('All Alt_Links'),
+                'edit_item'                     => __('Edit Alt_Links'),
+                'edit_item'                     => __('Edit Alt_Link'),
+                'update_item'                   => __('Update Alt_Link'),
+                'add_new_item'                  => __('Add New Alt_Link'),
+                'new_item_name'                 => __('New Alt_Link'),
+                'separate_items_with_commas'    => __('Seperate Alt_Links with Commas'),
+                'add_or_remove_items'           => __('Add or Remove Alt_Links'),
+                'choose_from_most_used'         => __('Choose from Most Used Alt_Links')
+            ),
+            'query_var'                         => true,
+            'rewrite'                           => array('slug' =>'altlink')
+        );
+        register_taxonomy( 'alt_links', array( 'post', 'cyberadvisorcolumn' ), $args );
+    }
+
+    function register_new_terms() {
+        $this->taxonomy = 'alt_links';
+        $this->terms = array (
+            '0' => array (
+                'name'          => 'Matt Filbert',
+                'slug'          => 'matt-filbert',
+                'description'   => 'This is a test term one',
+            ),
+            '1' => array (
+                'name'          => 'Kendall Adkins',
+                'slug'          => 'kendall-adkins',
+                'description'   => 'This is a test term two',
+            ),
+        );
+
+        foreach ( $this->terms as $term_key=>$term) {
+                wp_insert_term(
+                    $term['name'],
+                    $this->taxonomy,
+                    array(
+                        'description'   => $term['description'],
+                        'slug'          => $term['slug'],
+                    )
+                );
+            unset( $term );
+        }
+
+    }
+}
+$Test_Terms3 = new Test_Terms3();
+
 function getEvent(){
 	$time = time();
 	$wp_query = new WP_Query(array(
