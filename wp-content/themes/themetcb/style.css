@@ -184,20 +184,20 @@ h3 {
 }
 
 .post-type-archive-whitepapers .rcp_logged_in {
-    display: none;
+  display: none;
 }
 
 .post-type-archive-whitepapers .post_article p {
-    line-height: 1.5em;
-    display: none;
+  line-height: 1.5em;
+  display: none;
 }
 
 .post-type-archive-whitepapers .post_article .rcp_form p {
-    display: block;
+  display: block;
 }
 
 .post-type-archive-whitepapers.logged-in p {
-    display: block;
+  display: block;
 }
 
 .whitepaper-entry {
@@ -388,10 +388,10 @@ div.search-block {
 }
 
 .search-block {
-    float: left;
-    padding: 9px 10px 9px 0px;
-    text-align: left;
-    display: none;
+  float: left;
+  padding: 9px 10px 9px 0px;
+  text-align: left;
+  display: none;
 }
 
 .view_more {

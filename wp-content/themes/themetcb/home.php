@@ -290,6 +290,24 @@
 
         <!-- Meet Our Board -->
         <div class="meet_board">
+          <?php /* <?php
+            $wpb_all_query = new WP_Query(array(
+              'post_type'=> 'meet',
+              'post_status'=> 'publish',
+              'posts_per_page'=> 1,
+            ));
+            ?>
+          <?php if ( $wpb_all_query->have_posts() ) : ?>
+              <!-- the loop -->
+              <?php while ( $wpb_all_query->have_posts() ) : $wpb_all_query->the_post(); ?>
+              <?php endwhile; ?>
+              <!-- end of the loop -->
+              <?php wp_reset_postdata(); ?>
+
+          <?php else : ?>
+              <p><?php _e( 'Sorry, no posts matched your criteria.' ); ?></p>
+          <?php endif; ?>
+          */?>
           <h3 style="font-weight: bold; text-align: center; line-height: 1.2; font-family: 'replica-pro';"><a href="https://www.thecipherbrief.com/cyber-advisory-board">Meet Our Board</a></h3>
           <div class="meet_content" style="padding: 4px 4px 0 4px;">
             <img class="board_img" src="https://thecipherbriefcyber.com/wp-content/uploads/2017/10/Robert-Work-bw.jpg" alt="Robert Work">
