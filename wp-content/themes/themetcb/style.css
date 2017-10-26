@@ -46,6 +46,11 @@ Text Domain: thecipherbrief
 0.0 CAB Microsite
 Styles for CAB site
 --------------------------------------------------------------*/
+.post_article .cab a {
+  display: block;
+  padding-bottom: 50px;
+}
+
 h3 {
   font-family: 'replica-pro'!important;
   font-weight: 700;
