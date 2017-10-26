@@ -400,27 +400,29 @@
   <?php if ( $wpb_all_query->have_posts() ) : ?>
     <!-- the loop -->
     <?php while ( $wpb_all_query->have_posts() ) : $wpb_all_query->the_post(); ?>
-      <div class="vert-container book-entry">
-      <div class="book-img">
-        <?php the_post_thumbnail( 'thecipherbrief-thumbnail-cab' ); ?>
-      </div>
-      <div class="cipherbook-content">
-        <h3><a><?php the_title(); ?></a></h3>
-        <!-- Author Check -->
-        <?php $author = wp_get_post_terms($post->ID, 'authors'); ?>
-        <?php if ( $author[0] ) : ?>
-          <h5><a class="author_name"><?php echo $author[0]->name; ?></a></h5>
-        <?php else : ?>
-          <h5><a class="author_name">The Cipher Brief Staff</a></h5>
-        <?php endif; ?>
-      </div>
-      <!-- End Author Check -->
-    </div>
-    <?php endwhile; ?>
-    <!-- end of the loop -->
-    <?php wp_reset_postdata(); ?>
-  <?php endif; ?>
-</div>
+        <div class="vert-container book-entry">
+          <a href="<?php the_permalink(); ?>">
+            <div class="book-img">
+              <?php the_post_thumbnail( 'thecipherbrief-thumbnail-cab' ); ?>
+            </div>
+          </a>
+          <div class="cipherbook-content">
+            <h3><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
+            <!-- Author Check -->
+            <?php $author = wp_get_post_terms($post->ID, 'authors'); ?>
+            <?php if ( $author[0] ) : ?>
+              <h5><a href="<?php the_permalink(); ?>" class="author_name"><?php echo $author[0]->name; ?></a></h5>
+            <?php else : ?>
+              <h5><a href="<?php the_permalink(); ?>" class="author_name">The Cipher Brief Staff</a></h5>
+            <?php endif; ?>
+          </div>
+          <!-- End Author Check -->
+        </div>
+      <?php endwhile; ?>
+      <!-- end of the loop -->
+      <?php wp_reset_postdata(); ?>
+    <?php endif; ?>
+  </div>
 </div>
 
     <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>

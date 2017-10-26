@@ -3076,13 +3076,12 @@ function create_posttype() {
 			// CPT Options
 					array(
 							'labels' => array(
-									'name' => __( 'Cipher Book' ),
+									'name' => __( 'Your Cipher Briefing Book' ),
 									'singular_name' => __( 'Cipher Book' )
 							),
 							'public' => true,
 							'has_archive' => true,
 							'rewrite' => array('slug' => 'cipherbook'),
-							'taxonomies' => array('category'),
 							'supports' => array(
 								'title', 'editor', 'revisions', 'thumbnail'
 							),
