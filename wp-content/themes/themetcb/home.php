@@ -386,6 +386,43 @@
 </div>
 */?>
 
+
+<div class="cipherbook">
+  <h1 class="col-title"><a href="/cipherbook">your cipher briefing book</a></h1>
+  <?php
+    $wpb_all_query = new WP_Query(array(
+      'post_type' => 'cipherbook',
+      'post_status' => 'publish',
+      'showposts' => 4
+    ));
+  ?>
+  <div class="holder-container">
+  <?php if ( $wpb_all_query->have_posts() ) : ?>
+    <!-- the loop -->
+    <?php while ( $wpb_all_query->have_posts() ) : $wpb_all_query->the_post(); ?>
+      <div class="vert-container book-entry">
+      <div class="book-img">
+        <?php the_post_thumbnail( 'thecipherbrief-thumbnail-cab' ); ?>
+      </div>
+      <div class="cipherbook-content">
+        <h3><a><?php the_title(); ?></a></h3>
+        <!-- Author Check -->
+        <?php $author = wp_get_post_terms($post->ID, 'authors'); ?>
+        <?php if ( $author[0] ) : ?>
+          <h5><a class="author_name"><?php echo $author[0]->name; ?></a></h5>
+        <?php else : ?>
+          <h5><a class="author_name">The Cipher Brief Staff</a></h5>
+        <?php endif; ?>
+      </div>
+      <!-- End Author Check -->
+    </div>
+    <?php endwhile; ?>
+    <!-- end of the loop -->
+    <?php wp_reset_postdata(); ?>
+  <?php endif; ?>
+</div>
+</div>
+
     <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
     <script>(adsbygoogle = window.adsbygoogle || []).push({google_ad_client: "ca-pub-7418758779618043",enable_page_level_ads: true});</script>
     <script>

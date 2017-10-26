@@ -346,7 +346,7 @@ h3 {
   font-family: 'replica-pro';
 }
 
-#our_latest_news .author_name, #threat-stream .author_name {
+#our_latest_news .author_name, #threat-stream .author_name, .cipherbook .author_name {
   color: #077cc2;
   text-align: left;
 }
@@ -524,6 +524,42 @@ box-sizing: border-box;
   width: fit-content;
   display: flex;
   flex-direction: row!important;
+}
+
+.cipherbook {
+  width: 100%;
+}
+
+.cipherbook h3 {
+  font-weight: 700;
+}
+
+.cipherbook .col-title {
+  text-align: left;
+  width: fit-content;
+}
+
+.book-entry {
+  width: 23vw;
+  margin: 0 1% 0 0;
+}
+
+.book-img {
+  display: flex;
+  flex-direction: row;
+  max-width: 300px;
+  height: auto;
+  max-height: 200px;
+  overflow: hidden;
+  margin: 0 2% 0 0;
+  border: 1px solid black;
+}
+
+.cipherbook-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex-grow: 1;
 }
 
 .log_off_form {

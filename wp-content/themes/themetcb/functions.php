@@ -752,6 +752,8 @@ function thecipherbrief_setup() {
 
 	add_image_size( 'thecipherbrief-thumbnail-board', 75, 75, true );
 
+	add_image_size( 'thecipherbrief-thumbnail-book', 250, 200, true );
+
 	add_image_size( 'feature-thumb', 50, 33, true );
 	// Set the default content width.
 	$GLOBALS['content_width'] = 525;
@@ -1620,7 +1622,7 @@ class Test_Terms {
             'query_var'                         => true,
             'rewrite'                           => array('slug' =>'author')
         );
-        register_taxonomy( 'authors', array( 'post', 'whitepapers', 'cyberadvisorcolumn' ), $args );
+        register_taxonomy( 'authors', array( 'post', 'whitepapers', 'cyberadvisorcolumn', 'cipherbook' ), $args );
     }
 
     function register_new_terms() {
@@ -3082,7 +3084,7 @@ function create_posttype() {
 							'rewrite' => array('slug' => 'cipherbook'),
 							'taxonomies' => array('category'),
 							'supports' => array(
-								'title', 'editor', 'revisions'
+								'title', 'editor', 'revisions', 'thumbnail'
 							),
 					)
 			);
