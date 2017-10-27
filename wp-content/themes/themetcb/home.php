@@ -386,6 +386,7 @@
 </div>
 */?>
 
+<?php /*
 
 <div class="cipherbook">
   <h1 class="col-title"><a href="/cipherbook">your cipher briefing book</a></h1>
@@ -424,6 +425,8 @@
     <?php endif; ?>
   </div>
 </div>
+
+*/ ?>
 
     <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
     <script>(adsbygoogle = window.adsbygoogle || []).push({google_ad_client: "ca-pub-7418758779618043",enable_page_level_ads: true});</script>

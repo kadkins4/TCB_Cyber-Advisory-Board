@@ -450,8 +450,9 @@ box-sizing: border-box;
 
 .promo_blocks {
   background-color: #eee;
-  width: 23vw;
-  height: 175px;
+  width: 26%;
+  height: 180px;
+  flex-grow: 1;
   margin: auto 10px auto 0;
   padding: 1.5% 1% 0 1%;
   overflow: scroll;
