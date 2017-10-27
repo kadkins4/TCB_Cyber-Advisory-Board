@@ -38,6 +38,7 @@ the_custom_above_banner();
                       <div class='timestamp'<?php echo $posttime ?></div>
                     </div>
                     <?php $alt_link = wp_get_post_terms($post->ID, 'alt_links'); ?>
+                    <?php $author = wp_get_post_terms($post->ID, 'authors'); ?>
                     <?php if ( $alt_link[0] ) : ?>
                     <a href="<?php echo $alt_link[0]->name; ?>">
                     <?php else : ?>
@@ -49,6 +50,9 @@ the_custom_above_banner();
                   </div>
                     <div class="brief-content">
                           <h2><?php the_title(); ?></h2>
+                          <?php if ( $author[0] ) : ?>
+                          <h3> By <?php echo $author[0]->name;?></h3>
+                          <?php endif; ?>
                           <?php if ( ! $alt_link[0] ) : ?>
                       <p><?php the_truncated_post(200) ?></p>
                           <?php endif; ?>
