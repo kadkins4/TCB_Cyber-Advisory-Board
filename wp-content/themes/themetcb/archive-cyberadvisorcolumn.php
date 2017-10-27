@@ -1,6 +1,6 @@
 <?php
 /**
- * The template for displaying archive pages
+ * Template part for displaying page content in page.php
  *
  * @link https://codex.wordpress.org/Template_Hierarchy
  *
@@ -9,83 +9,65 @@
  * @since 1.0
  * @version 1.0
  */
+$my_sidebar = getMySideBar('wpcf-show_dead_drop','wpcf-show_dead_drop');
 get_header();
-//echo'<pre>';
-//print_r($wp_query);
-//echo'</pre>';
-$paged = $wp_query -> query['paged'] ? $wp_query -> query['paged'] : 1;
 the_custom_above_banner();
 ?>
-
-<div class="site-content-contain post_content">
-
-    <div class="post_article content-inner inner column center<?php echo ($wp_query->queried_object->taxonomy == 'category' ? ' width100' : '')?>">
-        <?php if ( have_posts() ) : ?>
-            <div class="view-header<?php echo ($wp_query->queried_object->taxonomy == 'category' ? ' no_uppercase' : '')?>">
+    <div class="site-content-contain post_content not_top_border">
+        <div class="post_article content-inner inner column center border_bottom">
+            <div class="view-header">
+                <div class="breadcrumb"><a style="display: none;" href="/cyberadvisorcolumn">Cyber Advisor Columns</a></div>
+                <h1 style="text-align:left; font-weight:100;padding-top: 0px;text-transform: none">
                 <?php
-                    if($wp_query->queried_object->taxonomy == 'category'){
-                        echo '<h1>'.$wp_query->queried_object->name.'</h1>';
+                    if(IsSet($wp_query->query['year']) && IsSet($wp_query->query['monthnum']) && $wp_query->query['year'] && $wp_query->query['monthnum']){
+                        echo date('F Y',strtotime($wp_query->query['year'].'-'.$wp_query->query['monthnum']));
                     } else {
-                        echo '<h1>'.post_type_archive_title( '', false ).'</h1>';
+                        echo post_type_archive_title( '', false );
                     }
-                    $cat = $wp_query->queried_object->name;
                 ?>
-
-
-
-
-
-
-
-                <?php
-                    the_archive_description( '<div class="taxonomy-description">', '</div>' );
-                ?>
-            </div><!-- .page-header -->
-        <?php endif; ?>
-
-        <main id="main" class="site-main" role="main">
+                </h1>
+            </div>
+            <div class="cab">
             <?php
-            if ( have_posts() ) : ?>
-                <?php
-                /* Start the Loop */
-                while ( have_posts() ) : the_post();
-                    the_title();
-                    $format = get_post_format();
-                    $format = !$format ? $post->post_type : $format;
-                    if($wp_query->queried_object->taxonomy == 'category'){
-                        $format = $wp_query->queried_object->taxonomy;
-                    }
+            if ( $wp_query->have_posts() ) {
+                while (have_posts()) {
+                    the_post();
+                    ?>
+                    <div class="brief-info">
+                      <?php $posttime = timeLink(); ?>
+                      <div class='timestamp'<?php echo $posttime ?></div>
+                    </div>
+                    <?php $alt_link = wp_get_post_terms($post->ID, 'alt_links'); ?>
+                    <?php if ( $alt_link[0] ) : ?>
+                    <a href="<?php echo $alt_link[0]->name; ?>">
+                    <?php else : ?>
+                        <a href="/cyberadvisorcolumn/<?php echo $post->post_name;?>/">
+                    <?php endif; ?>
+                    <div class="brief-contain">
+                      <div class="cab-arc-img">
+                    <?php the_post_thumbnail('thecipherbrief-featured-image'); ?>
+                  </div>
+                    <div class="brief-content">
+                          <h2><?php the_title(); ?></h2>
+                          <?php if ( ! $alt_link[0] ) : ?>
+                      <p><?php the_truncated_post(200) ?></p>
+                          <?php endif; ?>
+                    </div>
+                    </div>
+                        </a>
 
-
-                    get_template_part( 'template-parts/post/content', $format );
-
-                endwhile;
-
-                if (function_exists('custom_pagination')) {
-                    custom_pagination($wp_query->max_num_pages,"",$paged);
-                } else {
-                    the_posts_pagination( array(
-                        'prev_text' => thecipherbrief_get_svg( array( 'icon' => 'arrow-left' ) ) . '<span class="screen-reader-text">' . __( 'Previous page', 'thecipherbrief' ) . '</span>',
-                        'next_text' => '<span class="screen-reader-text">' . __( 'Next page', 'thecipherbrief' ) . '</span>',
-                        'before_page_number' => '<span class="meta-nav screen-reader-text">' . __( 'Page', 'thecipherbrief' ) . ' </span>',
-                    ) );
+                    <?php
                 }
+                ?>  </div>
+                <?php
+                if (function_exists(custom_pagination)) {
+                    custom_pagination($custom_query->max_num_pages,"",$paged);
+                }
+            }
+            ?>
 
-            else :
-
-                get_template_part( 'template-parts/post/content', 'none' );
-
-            endif; ?>
-        </main>
+        </div>
+        <?php echo ($my_sidebar ? $my_sidebar : '');?>
     </div>
-    <?php
-    if($wp_query->queried_object->taxonomy == 'category'){
-
-    } elseif($wp_query->query['post_type'] == 'video-daily-brief') {
-        $my_sidebar = getMySideBar('wpcf-show_video_daily','wpcf-sort_video_daily',array(),($myEvent ? $myEvent : array()));
-        echo ($my_sidebar ? $my_sidebar : '');
-    }
-    ?>
-</div>
-
-<?php get_footer();
+<?php
+get_footer();
