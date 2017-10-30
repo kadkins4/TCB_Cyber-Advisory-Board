@@ -121,7 +121,7 @@
     'post_type' => 'post',
     'category_name' => 'threatstream',
     'post_status'=>'publish',
-    'showposts'=> 8,
+    'showposts'=> 10,
     'orderby' => 'date',
     'order' => 'DESC'
   ));
