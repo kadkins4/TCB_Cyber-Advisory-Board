@@ -1756,7 +1756,7 @@ class Test_Terms3 {
                 'choose_from_most_used'         => __('Choose from Most Used Experts')
             ),
             'query_var'                         => true,
-            'rewrite'                           => array('slug' =>'altlink')
+            'rewrite'                           => array('slug' =>'experts')
         );
         register_taxonomy( 'experts', array( 'cyberadvisorcolumn' ), $args );
     }
