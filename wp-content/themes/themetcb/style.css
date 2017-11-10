@@ -189,20 +189,20 @@ h3 {
 }
 
 .post-type-archive-whitepapers .rcp_logged_in {
-    display: none;
+  display: none;
 }
 
 .post-type-archive-whitepapers .post_article p {
-    line-height: 1.5em;
-    display: none;
+  line-height: 1.5em;
+  display: none;
 }
 
 .post-type-archive-whitepapers .post_article .rcp_form p {
-    display: block;
+  display: block;
 }
 
 .post-type-archive-whitepapers.logged-in p {
-    display: block;
+  display: block;
 }
 
 .whitepaper-entry {
@@ -351,7 +351,7 @@ h3 {
   font-family: 'replica-pro';
 }
 
-#our_latest_news .author_name, #threat-stream .author_name {
+#our_latest_news .author_name, #threat-stream .author_name, .cipherbook .author_name {
   color: #077cc2;
   text-align: left;
 }
@@ -393,10 +393,10 @@ div.search-block {
 }
 
 .search-block {
-    float: left;
-    padding: 9px 10px 9px 0px;
-    text-align: left;
-    display: none;
+  float: left;
+  padding: 9px 10px 9px 0px;
+  text-align: left;
+  display: none;
 }
 
 .view_more {
@@ -455,8 +455,9 @@ box-sizing: border-box;
 
 .promo_blocks {
   background-color: #eee;
-  width: 23vw;
-  height: 175px;
+  width: 26%;
+  height: 180px;
+  flex-grow: 1;
   margin: auto 10px auto 0;
   padding: 1.5% 1% 0 1%;
   overflow: scroll;
@@ -529,6 +530,44 @@ box-sizing: border-box;
   width: fit-content;
   display: flex;
   flex-direction: row!important;
+}
+
+.cipherbook {
+  width: 100%;
+  margin: 5% 0 0 0;
+}
+
+.cipherbook h3 {
+  font-weight: 700;
+}
+
+.cipherbook .col-title {
+  text-align: left;
+  width: fit-content;
+}
+
+.book-entry {
+  width: 23vw;
+  margin: 0 1% 0 0;
+}
+
+.book-img {
+  display: flex;
+  flex-direction: row;
+  max-width: 300px;
+  height: auto;
+  max-height: 200px;
+  overflow: hidden;
+  margin: 0 2% 0 0;
+  border: 1px solid black;
+}
+
+.cipherbook-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex-grow: 1;
+  margin: 5px 0 0 0;
 }
 
 .log_off_form {
@@ -6322,7 +6361,7 @@ input[type="search"] {
 
 @media screen and (max-width: 767px) {
   body {
-    margin: 0 2px 0 2px!important;
+    margin: 0 4px 0 4px!important;
   }
 
   .sidebar_ad {
