@@ -752,6 +752,8 @@ function thecipherbrief_setup() {
 
 	add_image_size( 'thecipherbrief-thumbnail-board', 75, 75, true );
 
+	add_image_size( 'thecipherbrief-thumbnail-book', 250, 200, true );
+
 	add_image_size( 'feature-thumb', 50, 33, true );
 	// Set the default content width.
 	$GLOBALS['content_width'] = 525;
@@ -1620,7 +1622,7 @@ class Test_Terms {
             'query_var'                         => true,
             'rewrite'                           => array('slug' =>'author')
         );
-        register_taxonomy( 'authors', array( 'post', 'whitepapers', 'cyberadvisorcolumn', 'threatreport' ), $args );
+        register_taxonomy( 'authors', array( 'post', 'whitepapers', 'cyberadvisorcolumn', 'cipherbook' ), $args );
     }
 
     function register_new_terms() {
@@ -1721,6 +1723,74 @@ class Test_Terms2 {
     }
 }
 $Test_Terms2 = new Test_Terms2();
+
+class Test_Terms3 {
+
+    function __construct() {
+        register_activation_hook( __FILE__,array( $this,'activate' ) );
+        add_action( 'init', array( $this, 'create_cpts_and_taxonomies' ) );
+    }
+
+    function activate() {
+        $this->create_cpts_and_taxonomies();
+        $this->register_new_terms();
+    }
+
+    function create_cpts_and_taxonomies() {
+
+        $args = array(
+            'hierarchical'                      => true,
+            'labels' => array(
+                'name'                          => _x('Experts', 'taxonomy general name' ),
+                'singular_name'                 => _x('Expert', 'taxonomy singular name'),
+                'search_items'                  => __('Search Experts'),
+                'popular_items'                 => __('Popular Experts'),
+                'all_items'                     => __('All Experts'),
+                'edit_item'                     => __('Edit Experts'),
+                'edit_item'                     => __('Edit Experts'),
+                'update_item'                   => __('Update Experts'),
+                'add_new_item'                  => __('Add New Expert'),
+                'new_item_name'                 => __('New Expert'),
+                'separate_items_with_commas'    => __('Seperate Experts with Commas'),
+                'add_or_remove_items'           => __('Add or Remove Experts'),
+                'choose_from_most_used'         => __('Choose from Most Used Experts')
+            ),
+            'query_var'                         => true,
+            'rewrite'                           => array('slug' =>'experts')
+        );
+        register_taxonomy( 'experts', array( 'cyberadvisorcolumn' ), $args );
+    }
+
+    function register_new_terms() {
+        $this->taxonomy = 'experts';
+        $this->terms = array (
+            '0' => array (
+                'name'          => 'Matt Filbert',
+                'slug'          => 'matt-filbert',
+                'description'   => 'This is a test term one',
+            ),
+            '1' => array (
+                'name'          => 'Kendall Adkins',
+                'slug'          => 'kendall-adkins',
+                'description'   => 'This is a test term two',
+            ),
+        );
+
+        foreach ( $this->terms as $term_key=>$term) {
+                wp_insert_term(
+                    $term['name'],
+                    $this->taxonomy,
+                    array(
+                        'description'   => $term['description'],
+                        'slug'          => $term['slug'],
+                    )
+                );
+            unset( $term );
+        }
+
+    }
+}
+$Test_Terms3 = new Test_Terms3();
 
 function getEvent(){
 	$time = time();
@@ -3037,22 +3107,6 @@ function create_posttype() {
         )
 			);
 
-			register_post_type( 'threatstream',
-			// CPT Options
-					array(
-							'labels' => array(
-									'name' => __( 'Threat Stream' ),
-									'singular_name' => __( 'Threat Stream' )
-							),
-							'public' => true,
-							'has_archive' => true,
-							'rewrite' => array('slug' => 'threat-stream'),
-							'supports' => array(
-								'title', 'editor', 'thumbnail', 'revisions'
-							),
-					)
-			);
-
 			register_post_type( 'promoblock',
 			// CPT Options
 					array(
@@ -3081,7 +3135,39 @@ function create_posttype() {
 							'rewrite' => array('slug' => 'ads'),
 							'taxonomies' => array('category'),
 							'supports' => array(
-								'title', 'editor', 'revisions', 'tag'
+								'title', 'editor', 'revisions'
+							),
+					)
+			);
+
+			register_post_type( 'cipherbook',
+			// CPT Options
+					array(
+							'labels' => array(
+									'name' => __( 'Your Cipher Briefing Book' ),
+									'singular_name' => __( 'Cipher Book' )
+							),
+							'public' => true,
+							'has_archive' => true,
+							'rewrite' => array('slug' => 'cipherbook'),
+							'supports' => array(
+								'title', 'editor', 'revisions', 'thumbnail'
+							),
+					)
+			);
+
+			register_post_type( 'board',
+			// CPT Options
+					array(
+							'labels' => array(
+									'name' => __( 'Meet Our Board' ),
+									'singular_name' => __( 'Meet Our Board' )
+							),
+							'public' => true,
+							'has_archive' => true,
+							'rewrite' => array('slug' => 'board'),
+							'supports' => array(
+								'title', 'editor', 'revisions', 'thumbnail'
 							),
 					)
 			);

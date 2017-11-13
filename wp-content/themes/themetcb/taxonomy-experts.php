@@ -21,7 +21,7 @@ $my_sidebar = getMySideBar('wpcf-show_expert_commentary','wpcf-sort_expert_comme
 
 		<div class="view-header">
         <div id="content-header" class="content-header">
-            <div class="breadcrumb"><a href="/experts/">The Network</a></div>
+            <div style="display: none;" class="breadcrumb"><a href="/experts/">The Network</a></div>
         </div>
         <h4>The Network</h4>
         <?php
@@ -31,10 +31,11 @@ $my_sidebar = getMySideBar('wpcf-show_expert_commentary','wpcf-sort_expert_comme
                 $temp = $wpdb->get_results("SELECT * FROM wp_termmeta WHERE term_id=".(int)$wp_query->queried_object_id." AND meta_key='_thumbnail_id'");
                 if($temp[0]){
                     $temp = $wpdb->get_results("SELECT guid,post_excerpt FROM wp_posts WHERE ID=".(int)$temp[0]->meta_value);
-	                
+
                     if($temp[0] && IsSet($temp[0]->guid) && $temp[0]->guid) {
                         echo '<a>';
-                            echo '<img src="'.$temp[0]->guid.'" width="220" height="220" alt="">';
+
+														echo '<img src="'.$temp[0]->guid.'" width="220" height="220" alt="">';
                                echo '<div class="expert-name">';
                                     echo $wp_query->queried_object->name;
                                     echo '</br>';
@@ -45,7 +46,10 @@ $my_sidebar = getMySideBar('wpcf-show_expert_commentary','wpcf-sort_expert_comme
                 }
                 echo '</div>';
             }
+						the_archive_title('<h2>', '</h2>');
+	
             the_archive_description( '<div class="block block-system block-even clearfix">', '</div>' );
+
         ?>
 		</div>
         <?php
@@ -53,7 +57,7 @@ $my_sidebar = getMySideBar('wpcf-show_expert_commentary','wpcf-sort_expert_comme
             'cache_results'  => false,
             'posts_per_page' => 5,
             'paged'          => $paged,
-            'post_type'      => array('column_article','post'),
+            'post_type'      => array('cyberadvisorcolumn'),
             'tax_query'      => array(
                 array(
                     'taxonomy' => 'experts',

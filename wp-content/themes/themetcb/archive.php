@@ -50,14 +50,21 @@ the_custom_above_banner();
                       <?php $posttime = timeLink(); ?>
                       <div class='timestamp'<?php echo $posttime ?></div>
                     </div>
+                    <?php $alt_link = wp_get_post_terms($post->ID, 'alt_links'); ?>
+                    <?php if ( $alt_link[0] ) : ?>
+                    <a href="<?php echo $alt_link[0]->name; ?>">
+                    <?php else : ?>
                     <a href="<?php the_permalink(); ?>">
+                    <?php endif; ?>
                       <div class="brief-contain">
                         <div class="cab-arc-img">
                       <?php the_post_thumbnail('thecipherbrief-featured-image'); ?>
                     </div>
                       <div class="brief-content">
                             <h2><?php the_title(); ?></h2>
+                            <?php if ( ! $alt_link[0] ) : ?>
                         <p><?php the_truncated_post(200) ?></p>
+                            <?php endif; ?>
                       </div>
                       </div>
                     </a>
