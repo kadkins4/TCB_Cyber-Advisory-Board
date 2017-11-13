@@ -46,6 +46,11 @@ Text Domain: thecipherbrief
 0.0 CAB Microsite
 Styles for CAB site
 --------------------------------------------------------------*/
+.post_article .cab a {
+  display: block;
+  padding-bottom: 50px;
+}
+
 h3 {
   font-family: 'replica-pro'!important;
   font-weight: 700;
@@ -62,14 +67,12 @@ h3 {
   font-size: 13px;
   margin: 0;
   font-family: 'replica-pro';
-
 }
 
 .board_link {
   font-size: 11px;
   font-family: 'replica-pro';
 }
-
 
 .col-title {
   text-align: center;
@@ -79,7 +82,7 @@ h3 {
   font-size: 20px;
 }
 
-.col-title a {
+.col-title a, #threat-stream h1 a {
   text-decoration: none;
   color: white;
   background-color: #000e31;
@@ -90,7 +93,6 @@ h3 {
   font-size: 20px;
 }
 
-
 .third-section .col-title a {
   /*background-color: white;*/
   /*color: #000e31;*/
@@ -98,11 +100,9 @@ h3 {
   width: fit-content;
 }
 
-
 .col-title a:hover {
   color: white!important;
 }
-
 
 /*.third-section .col-title a:hover {
   color: #000e31!important;
@@ -189,20 +189,20 @@ h3 {
 }
 
 .post-type-archive-whitepapers .rcp_logged_in {
-    display: none;
+  display: none;
 }
 
 .post-type-archive-whitepapers .post_article p {
-    line-height: 1.5em;
-    display: none;
+  line-height: 1.5em;
+  display: none;
 }
 
 .post-type-archive-whitepapers .post_article .rcp_form p {
-    display: block;
+  display: block;
 }
 
 .post-type-archive-whitepapers.logged-in p {
-    display: block;
+  display: block;
 }
 
 .whitepaper-entry {
@@ -297,7 +297,6 @@ h3 {
   font-weight: 700;
 }
 
-
 #recent-news, #cab {
   border-right: 1px #C8C8C8 solid;
   padding-right: 2%;
@@ -307,7 +306,6 @@ h3 {
 #our_latest_news, #cyber-advisor-column-entry {
   margin: 5% 0;
 }
-
 
 #cyber-advisor-column-entry a {
   font-weight: 700;
@@ -353,7 +351,7 @@ h3 {
   font-family: 'replica-pro';
 }
 
-#our_latest_news .author_name, #threat-stream .author_name {
+#our_latest_news .author_name, #threat-stream .author_name, .cipherbook .author_name {
   color: #077cc2;
   text-align: left;
 }
@@ -395,10 +393,10 @@ div.search-block {
 }
 
 .search-block {
-    float: left;
-    padding: 9px 10px 9px 0px;
-    text-align: left;
-    display: none;
+  float: left;
+  padding: 9px 10px 9px 0px;
+  text-align: left;
+  display: none;
 }
 
 .view_more {
@@ -415,12 +413,11 @@ div.search-block {
   display: none;
 }
 
-
 .ciphertake-entry {
   width: 47%;
 }
 
-.ciphertake-entry h3 a {
+.ciphertake-entry h3 {
   margin: 5px 0 15px 0;
   color: #077cc2;
   font-size: 18px;
@@ -458,15 +455,12 @@ box-sizing: border-box;
 
 .promo_blocks {
   background-color: #eee;
-  width: 23vw;
-  height: 175px;
+  width: 26%;
+  height: 180px;
+  flex-grow: 1;
   margin: auto 10px auto 0;
   padding: 1.5% 1% 0 1%;
   overflow: scroll;
-}
-
-.promo_blocks:last-of-type {
-  margin: auto 0 auto 0;
 }
 
 .promo_blocks h3 {
@@ -495,14 +489,14 @@ box-sizing: border-box;
 
 .sidebar_ad {
   /* dummy text */
-  display: flex;
+  /*display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   color: red;
   font-size: 26px;
   background-color: #eee;
-  border: 1px solid red;
+  border: 1px solid red;*/
   /* end dummy text */
   margin-top: 5vh;
   height: 400px;
@@ -512,14 +506,14 @@ box-sizing: border-box;
 
 .sidebar_ad2 {
   /* dummy text */
-  border: 1px solid red;
+  /*border: 1px solid red;
   align-items: center;
   background-color: #eee;
   color: red;
   font-size: 26px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: center;*/
   /* end dummy text */
   height: 450px;
   width: 250px;
@@ -534,6 +528,65 @@ box-sizing: border-box;
 
 .promo-holder {
   width: fit-content;
+  display: flex;
+  flex-direction: row!important;
+}
+
+.cipherbook {
+  width: 100%;
+  margin: 5% 0 0 0;
+}
+
+.cipherbook h3 {
+  font-weight: 700;
+}
+
+.cipherbook .col-title {
+  text-align: left;
+  width: fit-content;
+}
+
+.book-entry {
+  width: 23vw;
+  margin: 0 1% 0 0;
+}
+
+.book-img {
+  display: flex;
+  flex-direction: row;
+  max-width: 300px;
+  height: auto;
+  max-height: 200px;
+  overflow: hidden;
+  margin: 0 2% 0 0;
+  border: 1px solid black;
+}
+
+.cipherbook-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex-grow: 1;
+  margin: 5px 0 0 0;
+}
+
+.log_off_form {
+  background-color: #000f33;
+  padding: 10px 15px;
+  text-transform: uppercase;
+  border: 1px solid #000f33;
+  border-radius: 2px;
+  font-size: 14px;
+  font-family: 'replica-pro';
+  color: white!important;
+}
+
+.mobile-ad1 {
+  width: 325px;
+  height: 100px;
+  border: 1px solid red;
+  background-color: grey;
+  display: none;
 }
 /*--------------------------------------------------------------
 1.0 Normalize
@@ -6288,9 +6341,51 @@ input[type="search"] {
 19.0 Media Queries
 --------------------------------------------------------------*/
 @media screen and (max-width: 667px) and (orientation: portrait) {
-    #block-views-cipher_take-block, #block-views-home-reporter_links {
-        display: none;
+
+}
+
+@media only screen
+  and (min-width: 768px)
+  and (max-width: 1024px)
+  and (-webkit-min-device-pixel-ratio: 1) {
+
+    .col-title {
+      background-color: #000e31;
+      min-height: 70px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
     }
+
+}
+
+@media screen and (max-width: 767px) {
+  body {
+    margin: 0 4px 0 4px!important;
+  }
+
+  .sidebar_ad {
+    display: none;
+  }
+
+  .mobile-ad1 {
+    display: block;
+  }
+
+  .promo-holder {
+    display: flex;
+    flex-direction: column!important;
+  }
+
+  .promo_blocks {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100vw;
+    height: auto;
+    flex-wrap: wrap;
+    margin: 1% 0 0 0;
+  }
 }
 
 @media screen and (max-width: 667px) {
@@ -6314,6 +6409,7 @@ input[type="search"] {
   #whitepaper {
     flex-wrap: nowrap;
     height: 100%;
+    align-items: space-between;
   }
   .cab-arc-img {
     width: 37%;
@@ -6322,10 +6418,6 @@ input[type="search"] {
   #ciphertake .ciphertake-entry:first-of-type {
     padding: 0;
     border-right: none;
-  }
-  .meet_board {
-    width: 35%;
-    height: auto;
   }
   .cab-hide {
     display: none;
@@ -6336,12 +6428,50 @@ input[type="search"] {
   .holder-container h3, .holder-container .author_name {
     font-size: 90%!important;
   }
-  .col-title a {
-    font-size: 70%;
+  .col-title a, #threat-stream h1 a {
+    font-size: 55%;
+  }
+  .col-title {
+    background-color: #000e31;
+    min-height: 90px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
   }
   #our_latest_news h3 a, #cyber-advisor-column-entry h3 a, .threat-stream-entry h3 a {
     font-size: 100%;
   }
+  /*#aw0 img {
+    width: 63%;
+    height: 100%;
+  }
+  div#google_image_div {
+    margin-left: 25%;
+  }*/
+.third-section-container .col-ad {
+  display: none;
+}
+.explanation {
+  display: none;
+}
+.meet_board {
+  max-width: none;
+}
+#whitepaper, .meet_board {
+  height: 60vh;
+  width: 50vw!important;
+}
+.promo-holder {
+  width: 100%;
+}
+
+#mob-col {
+  flex-direction: column;
+}
+.ciphertake-entry {
+  width: 100%;
+}
+
 }
 
 
@@ -20287,7 +20417,7 @@ p.dec_cyber{
     position: relative;
     display: inline-block;
     margin: 4px 0 0 0;
-    padding: 0 34px;
+    padding: 0 14.2px;
 }
 
 .whitepaper-entry h3 {
